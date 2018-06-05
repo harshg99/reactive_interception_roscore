@@ -72,6 +72,7 @@ class ImageConverter
            cv::rectangle(cv_ptr->image,faces[i],cv::Scalar(0,0,255));
          }
        // Output modified video stream
+
        image_pub_.publish(cv_ptr->toImageMsg());
         cv::imshow(OPENCV_WINDOW,cv_ptr->image);
         tm.stop();

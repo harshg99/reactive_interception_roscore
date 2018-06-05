@@ -37,9 +37,13 @@ public:
     void imageCbCPU(const sensor_msgs::ImageConstPtr& msg)
     {
       cv_bridge::CvImagePtr cv_ptr;
+      cv::TickMeter tick;
+      tick.start();
+      cv::waitKey(3);
       try
       {
         cv_ptr = cv_bridge::toCvCopy(msg, sensor_msgs::image_encodings::BGR8);
+        ROS_INFO("Sucess");
       }
       catch (cv_bridge::Exception& e)
       {
@@ -48,16 +52,17 @@ public:
       }
       image_pub_.publish(cv_ptr->toImageMsg());
       cv::imshow(OPENCV_WINDOW,cv_ptr->image);
+      tick.stop();
+      ROS_INFO("Time Taken for display: %lf ms",tick.getTimeMilli());
+
     }
 };
 
-int main(int argc,char **argv ){
+int main(int argc,char ** argv ){
     ros::init(argc,argv,"cpu_display");
-    //cv::TickMeter tick;
-    //tick.start();
+
     ImageConverter images;
-   // ROS_INFO("Time Taken for display: %lf ms",tick.getTimeMilli());
-    //tick.stop();
+
     ros::spin();
     return 0;
 }
