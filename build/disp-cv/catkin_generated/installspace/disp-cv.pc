@@ -1,0 +1,8 @@
+prefix=/home/harsh/ros_ws/install
+
+Name: disp-cv
+Description: Description of disp-cv
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/harsh/ros_ws/install/lib 
+Requires: 

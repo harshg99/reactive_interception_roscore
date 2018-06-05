@@ -1,0 +1,2 @@
+disp-cv:display_cv:face_detect_ros:teleop_twist_keyboard
+-DCATKIN_DEVEL_PREFIX=/home/harsh/ros_ws/devel -DCMAKE_INSTALL_PREFIX=/home/harsh/ros_ws/install -G Unix Makefiles
