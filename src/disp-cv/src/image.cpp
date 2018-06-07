@@ -56,7 +56,7 @@ class ImageConverter
        // Update GUI Window
 
        cv::waitKey(3);
-       string face_cascade_name="/opt/ros/kinetic/share/OpenCV-3.3.1-dev/haarcascades/haarcascade_frontalface_alt.xml";
+       string face_cascade_name="/opt/ros/kinetic/share/OpenCV-3.3.1-dev/lbpcascades/lbpcascade_frontalface.xml";
        cv::CascadeClassifier face_cascade;
          if( !face_cascade.load( face_cascade_name ) )
          { ROS_INFO("--(!)Error loading face cascade\n");
@@ -64,8 +64,18 @@ class ImageConverter
          };
 
          std::vector<cv::Rect> faces;
-         cv::Mat frame_gray;
-         cv::cvtColor( cv_ptr->image, frame_gray, cv::COLOR_BGR2GRAY );
+         //cv::Mat frame_gray;
+
+         //gpu
+         cv::UMat frame_gray,frame;
+         cv_ptr->image.copyTo(frame);
+
+
+         //cv::cvtColor( cv_ptr->image, frame_gray, cv::COLOR_BGR2GRAY );
+
+         //gpu
+         cv::cvtColor( frame, frame_gray, cv::COLOR_BGR2GRAY );
+
          cv::equalizeHist( frame_gray, frame_gray );
          face_cascade.detectMultiScale( frame_gray, faces, 1.1, 2, 0|cv::CASCADE_SCALE_IMAGE, cv::Size(30, 30) );
          for(size_t i=0 ;i <faces.size();i++){

@@ -646,6 +646,19 @@ cpu_display/fast:
 	$(MAKE) -f display_cv/CMakeFiles/cpu_display.dir/build.make display_cv/CMakeFiles/cpu_display.dir/build
 .PHONY : cpu_display/fast
 
+#=============================================================================
+# Target rules for targets named gpu_detect
+
+# Build rule for target.
+gpu_detect: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 gpu_detect
+.PHONY : gpu_detect
+
+# fast build rule for target.
+gpu_detect/fast:
+	$(MAKE) -f face_detect_ros/CMakeFiles/gpu_detect.dir/build.make face_detect_ros/CMakeFiles/gpu_detect.dir/build
+.PHONY : gpu_detect/fast
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -696,6 +709,7 @@ help:
 	@echo "... rosgraph_msgs_generate_messages_lisp"
 	@echo "... roscpp_generate_messages_nodejs"
 	@echo "... cpu_display"
+	@echo "... gpu_detect"
 .PHONY : help
 
 

@@ -329,7 +329,7 @@ gtest/gtest/preinstall:
 gtest/gtest/CMakeFiles/gtest.dir/all:
 	$(MAKE) -f gtest/gtest/CMakeFiles/gtest.dir/build.make gtest/gtest/CMakeFiles/gtest.dir/depend
 	$(MAKE) -f gtest/gtest/CMakeFiles/gtest.dir/build.make gtest/gtest/CMakeFiles/gtest.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/harsh/ros_ws/build/CMakeFiles --progress-num=10,11 "Built target gtest"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/harsh/ros_ws/build/CMakeFiles --progress-num=12,13 "Built target gtest"
 .PHONY : gtest/gtest/CMakeFiles/gtest.dir/all
 
 # Build rule for subdir invocation for target.
@@ -361,7 +361,7 @@ clean: gtest/gtest/CMakeFiles/gtest.dir/clean
 gtest/gtest/CMakeFiles/gtest_main.dir/all: gtest/gtest/CMakeFiles/gtest.dir/all
 	$(MAKE) -f gtest/gtest/CMakeFiles/gtest_main.dir/build.make gtest/gtest/CMakeFiles/gtest_main.dir/depend
 	$(MAKE) -f gtest/gtest/CMakeFiles/gtest_main.dir/build.make gtest/gtest/CMakeFiles/gtest_main.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/harsh/ros_ws/build/CMakeFiles --progress-num=12,13 "Built target gtest_main"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/harsh/ros_ws/build/CMakeFiles --progress-num=14,15 "Built target gtest_main"
 .PHONY : gtest/gtest/CMakeFiles/gtest_main.dir/all
 
 # Build rule for subdir invocation for target.
@@ -486,7 +486,7 @@ disp-cv/preinstall:
 disp-cv/CMakeFiles/image.dir/all:
 	$(MAKE) -f disp-cv/CMakeFiles/image.dir/build.make disp-cv/CMakeFiles/image.dir/depend
 	$(MAKE) -f disp-cv/CMakeFiles/image.dir/build.make disp-cv/CMakeFiles/image.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/harsh/ros_ws/build/CMakeFiles --progress-num=14,15 "Built target image"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/harsh/ros_ws/build/CMakeFiles --progress-num=16,17 "Built target image"
 .PHONY : disp-cv/CMakeFiles/image.dir/all
 
 # Include target in all.
@@ -1375,12 +1375,12 @@ clean: display_cv/CMakeFiles/cpu_display.dir/clean
 # Directory level rules for directory face_detect_ros
 
 # Convenience name for "all" pass in the directory.
-face_detect_ros/all:
+face_detect_ros/all: face_detect_ros/CMakeFiles/gpu_detect.dir/all
 
 .PHONY : face_detect_ros/all
 
 # Convenience name for "clean" pass in the directory.
-face_detect_ros/clean:
+face_detect_ros/clean: face_detect_ros/CMakeFiles/gpu_detect.dir/clean
 
 .PHONY : face_detect_ros/clean
 
@@ -1388,6 +1388,43 @@ face_detect_ros/clean:
 face_detect_ros/preinstall:
 
 .PHONY : face_detect_ros/preinstall
+
+#=============================================================================
+# Target rules for target face_detect_ros/CMakeFiles/gpu_detect.dir
+
+# All Build rule for target.
+face_detect_ros/CMakeFiles/gpu_detect.dir/all:
+	$(MAKE) -f face_detect_ros/CMakeFiles/gpu_detect.dir/build.make face_detect_ros/CMakeFiles/gpu_detect.dir/depend
+	$(MAKE) -f face_detect_ros/CMakeFiles/gpu_detect.dir/build.make face_detect_ros/CMakeFiles/gpu_detect.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/harsh/ros_ws/build/CMakeFiles --progress-num=10,11 "Built target gpu_detect"
+.PHONY : face_detect_ros/CMakeFiles/gpu_detect.dir/all
+
+# Include target in all.
+all: face_detect_ros/CMakeFiles/gpu_detect.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+face_detect_ros/CMakeFiles/gpu_detect.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/harsh/ros_ws/build/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 face_detect_ros/CMakeFiles/gpu_detect.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/harsh/ros_ws/build/CMakeFiles 0
+.PHONY : face_detect_ros/CMakeFiles/gpu_detect.dir/rule
+
+# Convenience name for target.
+gpu_detect: face_detect_ros/CMakeFiles/gpu_detect.dir/rule
+
+.PHONY : gpu_detect
+
+# clean rule for target.
+face_detect_ros/CMakeFiles/gpu_detect.dir/clean:
+	$(MAKE) -f face_detect_ros/CMakeFiles/gpu_detect.dir/build.make face_detect_ros/CMakeFiles/gpu_detect.dir/clean
+.PHONY : face_detect_ros/CMakeFiles/gpu_detect.dir/clean
+
+# clean rule for target.
+clean: face_detect_ros/CMakeFiles/gpu_detect.dir/clean
+
+.PHONY : clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

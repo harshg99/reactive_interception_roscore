@@ -233,4 +233,5 @@ set(CMAKE_DEPEND_INFO_FILES
   "disp-cv/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/DependInfo.cmake"
   "disp-cv/CMakeFiles/roscpp_generate_messages_nodejs.dir/DependInfo.cmake"
   "display_cv/CMakeFiles/cpu_display.dir/DependInfo.cmake"
+  "face_detect_ros/CMakeFiles/gpu_detect.dir/DependInfo.cmake"
   )

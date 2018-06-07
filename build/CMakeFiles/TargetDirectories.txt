@@ -80,7 +80,8 @@
 /home/harsh/ros_ws/build/face_detect_ros/CMakeFiles/list_install_components.dir
 /home/harsh/ros_ws/build/face_detect_ros/CMakeFiles/install.dir
 /home/harsh/ros_ws/build/face_detect_ros/CMakeFiles/rebuild_cache.dir
+/home/harsh/ros_ws/build/face_detect_ros/CMakeFiles/edit_cache.dir
+/home/harsh/ros_ws/build/face_detect_ros/CMakeFiles/gpu_detect.dir
 /home/harsh/ros_ws/build/face_detect_ros/CMakeFiles/install/strip.dir
 /home/harsh/ros_ws/build/face_detect_ros/CMakeFiles/install/local.dir
 /home/harsh/ros_ws/build/face_detect_ros/CMakeFiles/test.dir
-/home/harsh/ros_ws/build/face_detect_ros/CMakeFiles/edit_cache.dir

@@ -89,6 +89,17 @@ rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
 
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
+	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+.PHONY : edit_cache
+
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
+
+.PHONY : edit_cache/fast
+
 # Special rule for the target install/strip
 install/strip: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
@@ -122,17 +133,6 @@ test/fast: test
 
 .PHONY : test/fast
 
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
-.PHONY : edit_cache
-
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-
-.PHONY : edit_cache/fast
-
 # The main all target
 all: cmake_check_build_system
 	cd /home/harsh/ros_ws/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/harsh/ros_ws/build/CMakeFiles /home/harsh/ros_ws/build/face_detect_ros/CMakeFiles/progress.marks
@@ -165,6 +165,48 @@ depend:
 	cd /home/harsh/ros_ws/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
+# Convenience name for target.
+face_detect_ros/CMakeFiles/gpu_detect.dir/rule:
+	cd /home/harsh/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 face_detect_ros/CMakeFiles/gpu_detect.dir/rule
+.PHONY : face_detect_ros/CMakeFiles/gpu_detect.dir/rule
+
+# Convenience name for target.
+gpu_detect: face_detect_ros/CMakeFiles/gpu_detect.dir/rule
+
+.PHONY : gpu_detect
+
+# fast build rule for target.
+gpu_detect/fast:
+	cd /home/harsh/ros_ws/build && $(MAKE) -f face_detect_ros/CMakeFiles/gpu_detect.dir/build.make face_detect_ros/CMakeFiles/gpu_detect.dir/build
+.PHONY : gpu_detect/fast
+
+src/face_detect.o: src/face_detect.cpp.o
+
+.PHONY : src/face_detect.o
+
+# target to build an object file
+src/face_detect.cpp.o:
+	cd /home/harsh/ros_ws/build && $(MAKE) -f face_detect_ros/CMakeFiles/gpu_detect.dir/build.make face_detect_ros/CMakeFiles/gpu_detect.dir/src/face_detect.cpp.o
+.PHONY : src/face_detect.cpp.o
+
+src/face_detect.i: src/face_detect.cpp.i
+
+.PHONY : src/face_detect.i
+
+# target to preprocess a source file
+src/face_detect.cpp.i:
+	cd /home/harsh/ros_ws/build && $(MAKE) -f face_detect_ros/CMakeFiles/gpu_detect.dir/build.make face_detect_ros/CMakeFiles/gpu_detect.dir/src/face_detect.cpp.i
+.PHONY : src/face_detect.cpp.i
+
+src/face_detect.s: src/face_detect.cpp.s
+
+.PHONY : src/face_detect.s
+
+# target to generate assembly for a file
+src/face_detect.cpp.s:
+	cd /home/harsh/ros_ws/build && $(MAKE) -f face_detect_ros/CMakeFiles/gpu_detect.dir/build.make face_detect_ros/CMakeFiles/gpu_detect.dir/src/face_detect.cpp.s
+.PHONY : src/face_detect.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -174,10 +216,14 @@ help:
 	@echo "... list_install_components"
 	@echo "... install"
 	@echo "... rebuild_cache"
+	@echo "... edit_cache"
+	@echo "... gpu_detect"
 	@echo "... install/strip"
 	@echo "... install/local"
 	@echo "... test"
-	@echo "... edit_cache"
+	@echo "... src/face_detect.o"
+	@echo "... src/face_detect.i"
+	@echo "... src/face_detect.s"
 .PHONY : help
 
 
