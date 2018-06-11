@@ -10,6 +10,61 @@ using namespace std;
 
 static const string OPENCV_WINDOW = "Image window";
 
+class detect
+    {
+        private:
+            string cascade_name;
+            cv::CascadeClassifier cascade;
+            std::vector<cv::Rect> boxes;
+        public:
+            //default:detect face
+            detect(){
+                cascade_name="/opt/ros/kinetic/share/OpenCV-3.3.1-dev/lbpcascades/lbpcascade_frontalface.xml";
+                  if( !cascade.load( cascade_name ) )
+                  { ROS_INFO("--(!)Error loading face cascade\n");
+                    return ;
+                  };
+            }
+            //your haar cascade
+            detect(string casacde_name){
+                casacde_name=this->cascade_name;
+                if( !cascade.load( cascade_name ) )
+                { ROS_INFO("--(!)Error loading face cascade\n");
+                  return ;
+                };
+            }
+            void find_object_cpu(cv::Mat frame ){
+
+                cv::Mat frame_gray;
+                cv::cvtColor( frame, frame_gray, cv::COLOR_BGR2GRAY );
+
+                cv::equalizeHist( frame_gray, frame_gray );
+                cascade.detectMultiScale( frame_gray, boxes, 1.2, 2, 0|cv::CASCADE_SCALE_IMAGE, cv::Size(20, 20),cv::Size(200,200) );
+
+
+                disp_boxes(frame);
+            }
+            void find_object_gpu(cv::Mat frame ){
+
+                cv::UMat frame_gray,frame2;
+                frame.copyTo(frame2);
+
+                cv::cvtColor( frame, frame_gray, cv::COLOR_BGR2GRAY );
+
+                cv::equalizeHist( frame_gray, frame_gray );
+                cascade.detectMultiScale( frame_gray, boxes, 1.2, 2, 0|cv::CASCADE_SCALE_IMAGE, cv::Size(20, 20),cv::Size(200,200) );
+                disp_boxes(frame);
+            }
+            void disp_boxes(cv::Mat frame){
+                for(size_t i=0 ;i <boxes.size();i++){
+                  cv::rectangle(frame,boxes[i],cv::Scalar(0,0,255));
+                }
+
+                cv::imshow(OPENCV_WINDOW,frame);
+
+            }
+
+    };
 class ImageConverter
    {
      ros::NodeHandle nh_;
@@ -56,39 +111,42 @@ class ImageConverter
        // Update GUI Window
 
        cv::waitKey(3);
-       string face_cascade_name="/opt/ros/kinetic/share/OpenCV-3.3.1-dev/lbpcascades/lbpcascade_frontalface.xml";
+      /* string face_cascade_name="/opt/ros/kinetic/share/OpenCV-3.3.1-dev/lbpcascades/lbpcascade_frontalface.xml";
        cv::CascadeClassifier face_cascade;
          if( !face_cascade.load( face_cascade_name ) )
          { ROS_INFO("--(!)Error loading face cascade\n");
            return ;
-         };
+         };*/
 
-         std::vector<cv::Rect> faces;
+         //std::vector<cv::Rect> faces;
          //cv::Mat frame_gray;
+         detect face=detect();
+         face.find_object_gpu(cv_ptr->image);
+         //gpu
+         //cv::UMat frame_gray,frame;
+         //cv_ptr->image.copyTo(frame);
+
+
+        // cv::cvtColor( cv_ptr->image, frame_gray, cv::COLOR_BGR2GRAY );
 
          //gpu
-         cv::UMat frame_gray,frame;
-         cv_ptr->image.copyTo(frame);
-
-
-         //cv::cvtColor( cv_ptr->image, frame_gray, cv::COLOR_BGR2GRAY );
-
-         //gpu
-         cv::cvtColor( frame, frame_gray, cv::COLOR_BGR2GRAY );
-
+         //cv::cvtColor( frame, frame_gray, cv::COLOR_BGR2GRAY );
+/*
          cv::equalizeHist( frame_gray, frame_gray );
-         face_cascade.detectMultiScale( frame_gray, faces, 1.1, 2, 0|cv::CASCADE_SCALE_IMAGE, cv::Size(30, 30) );
+         face_cascade.detectMultiScale( frame_gray, faces, 1.2, 2, 0|cv::CASCADE_SCALE_IMAGE, cv::Size(20, 20),cv::Size(200,200) );
          for(size_t i=0 ;i <faces.size();i++){
            cv::rectangle(cv_ptr->image,faces[i],cv::Scalar(0,0,255));
          }
        // Output modified video stream
-
+*/
        image_pub_.publish(cv_ptr->toImageMsg());
-        cv::imshow(OPENCV_WINDOW,cv_ptr->image);
+
         tm.stop();
         ROS_INFO("Time Taken for display: %lf ms",tm.getTimeMilli());
      }
+
    };
+
 
    int main(int argc, char** argv)
    {
