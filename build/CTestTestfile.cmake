@@ -6,6 +6,6 @@
 # testing this directory and lists subdirectories to be tested as well.
 subdirs(gtest)
 subdirs(teleop_twist_keyboard)
-subdirs(disp-cv)
+subdirs(disp_cv)
 subdirs(display_cv)
 subdirs(face_detect_ros)

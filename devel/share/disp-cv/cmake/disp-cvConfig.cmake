@@ -91,9 +91,9 @@ endif()
 # flag project as catkin-based to distinguish if a find_package()-ed project is a catkin project
 set(disp-cv_FOUND_CATKIN_PROJECT TRUE)
 
-if(NOT " " STREQUAL " ")
+if(NOT "/home/harsh/ros_ws/devel/include;/home/harsh/ros_ws/src/disp-cv/include " STREQUAL " ")
   set(disp-cv_INCLUDE_DIRS "")
-  set(_include_dirs "")
+  set(_include_dirs "/home/harsh/ros_ws/devel/include;/home/harsh/ros_ws/src/disp-cv/include")
   if(NOT " " STREQUAL " ")
     set(_report "Check the issue tracker '' and consider creating a ticket if the problem has not been reported yet.")
   elseif(NOT " " STREQUAL " ")
@@ -152,7 +152,7 @@ foreach(library ${libraries})
   endif()
 endforeach()
 
-set(disp-cv_EXPORTED_TARGETS "")
+set(disp-cv_EXPORTED_TARGETS "disp-cv_generate_messages_cpp;disp-cv_generate_messages_eus;disp-cv_generate_messages_lisp;disp-cv_generate_messages_nodejs;disp-cv_generate_messages_py")
 # create dummy targets for exported code generation targets to make life of users easier
 foreach(t ${disp-cv_EXPORTED_TARGETS})
   if(NOT TARGET ${t})
@@ -160,7 +160,7 @@ foreach(t ${disp-cv_EXPORTED_TARGETS})
   endif()
 endforeach()
 
-set(depends "")
+set(depends "cv_bridge;image_transport;roscpp;sensor_msgs;std_msgs;message_runtime")
 foreach(depend ${depends})
   string(REPLACE " " ";" depend_list ${depend})
   # the package name of the dependency must be kept in a unique variable so that it is not overwritten in recursive calls
@@ -189,7 +189,7 @@ foreach(depend ${depends})
   list(APPEND disp-cv_EXPORTED_TARGETS ${${disp-cv_dep}_EXPORTED_TARGETS})
 endforeach()
 
-set(pkg_cfg_extras "")
+set(pkg_cfg_extras "disp-cv-msg-extras.cmake")
 foreach(extra ${pkg_cfg_extras})
   if(NOT IS_ABSOLUTE ${extra})
     set(extra ${disp-cv_DIR}/${extra})

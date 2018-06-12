@@ -6,6 +6,24 @@
 
 #IncludeRegexTransform: 
 
+/home/harsh/ros_ws/src/disp-cv/include/cv_defs_xtion.h
+ros/ros.h
+-
+image_transport/image_transport.h
+-
+cv_bridge/cv_bridge.h
+-
+sensor_msgs/image_encodings.h
+-
+sensor_msgs/CameraInfo.h
+-
+opencv2/imgproc/imgproc.hpp
+-
+opencv2/highgui/highgui.hpp
+-
+opencv2/objdetect.hpp
+-
+
 /home/harsh/ros_ws/src/disp-cv/src/image.cpp
 ros/ros.h
 -
@@ -15,11 +33,15 @@ cv_bridge/cv_bridge.h
 -
 sensor_msgs/image_encodings.h
 -
+sensor_msgs/CameraInfo.h
+-
 opencv2/imgproc/imgproc.hpp
 -
 opencv2/highgui/highgui.hpp
 -
 opencv2/objdetect.hpp
+-
+cv_defs_xtion.h
 -
 
 /opt/ros/kinetic/include/cv_bridge/cv_bridge.h

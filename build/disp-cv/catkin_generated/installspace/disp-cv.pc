@@ -3,6 +3,6 @@ prefix=/home/harsh/ros_ws/install
 Name: disp-cv
 Description: Description of disp-cv
 Version: 0.0.0
-Cflags: 
+Cflags: -I/home/harsh/ros_ws/install/include
 Libs: -L/home/harsh/ros_ws/install/lib 
-Requires: 
+Requires: cv_bridge image_transport roscpp sensor_msgs std_msgs message_runtime
