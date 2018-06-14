@@ -14,6 +14,7 @@ find_package(catkin REQUIRED COMPONENTS
   sensor_msgs
   std_msgs
   message_generation
+  pcl_ros
 )
 find_package(OpenCV REQUIRED)
 
@@ -112,7 +113,7 @@ find_package(OpenCV REQUIRED)
 catkin_package(
  INCLUDE_DIRS include
 #  LIBRARIES disp-cv
-  CATKIN_DEPENDS cv_bridge image_transport roscpp sensor_msgs std_msgs message_runtime
+  CATKIN_DEPENDS cv_bridge image_transport roscpp sensor_msgs std_msgs message_runtime pcl_ros
 #  DEPENDS system_lib
 )
 
@@ -156,6 +157,11 @@ add_executable(image src/image.cpp)
 ## Specify libraries to link a library or executable target against
 target_link_libraries(image
    # $(OpenCV_LIBRARIES)
+   ${catkin_LIBRARIES}
+   ${OpenCV_LIBRARIES}
+ )
+add_executable(calc_depth src/calc_depth.cpp)
+target_link_libraries( calc_depth
    ${catkin_LIBRARIES}
    ${OpenCV_LIBRARIES}
  )

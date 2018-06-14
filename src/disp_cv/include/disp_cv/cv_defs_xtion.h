@@ -87,23 +87,34 @@ class detect
 class publishBox{
 
   public:
-    static void publish(std::vector<cv::Rect> allboxes){
-     ros::NodeHandle n;
-     ros::Publisher pub;
-     pub=n.advertise<disp_cv::multibox>("/bounding_boxes",1);
+    ros::Publisher pub;
+    publishBox(){}
+    publishBox(ros::NodeHandle nh_){
+       pub =nh_.advertise<disp_cv::multibox>("/bounding_boxes",1);
+    }
+    void publish(std::vector<cv::Rect> allboxes){
+     //ros::NodeHandle node;
+     //ros::Rate rate(30);
+    // pub=n.advertise<disp_cv::multibox>("/bounding_boxes",1);
      std::vector<cv::Rect> boxes= allboxes;
      disp_cv::multibox k;
      if(!boxes.empty()){
        convert(boxes,&k);
        k.timestamp=ros::Time::now();
+       if(k.boxes.empty()){
+         ROS_INFO("Empty");
+       }
+      // if(pub.getNumSubscribers()>0){
        pub.publish(k);
-      // ROS_INFO("Published\n");
+       ROS_INFO("Published\n");
+   //    }
+
      }
      else{
-      // ROS_INFO("Publish Error\n");
+       ROS_INFO("Publish Error\n");
      }
    }
-    static void convert(std::vector<cv::Rect>boxes,disp_cv::multibox *all)
+    void convert(std::vector<cv::Rect>boxes,disp_cv::multibox *all)
     {
       //disp_cv::box temp[boxes.size()];
       all->boxes.clear();
@@ -113,6 +124,7 @@ class publishBox{
          box.y=boxes[i].y;
          box.w=boxes[i].width;
          box.h=boxes[i].height;
+         //printf("Value: %d",box.h);
          all->boxes.push_back(box);
          //temp[i]=box;
       }
@@ -129,6 +141,7 @@ class ImageConverter
      image_transport::Subscriber image_sub_;
      image_transport::Publisher image_pub_;
      detect object;
+     publishBox publish;
    public:
      ImageConverter()
        : it_(nh_)
@@ -137,6 +150,7 @@ class ImageConverter
        image_sub_ = it_.subscribe("/camera/rgb/image_raw", 1,
          &ImageConverter::imageCb, this);
        image_pub_ = it_.advertise("/image_converter/output_video", 1);
+       publish=publishBox(nh_);
 
        cv::namedWindow(OPENCV_WINDOW);
        object=detect();
@@ -173,7 +187,8 @@ class ImageConverter
 
         object.find_object_gpu(cv_ptr->image);
         image_pub_.publish(cv_ptr->toImageMsg());
-        publishBox::publish(object.retBoxes());
+
+        publish.publish(object.retBoxes());
 
        // pubCameraInfo();
         tm.stop();

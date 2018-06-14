@@ -160,7 +160,7 @@ foreach(t ${disp_cv_EXPORTED_TARGETS})
   endif()
 endforeach()
 
-set(depends "cv_bridge;image_transport;roscpp;sensor_msgs;std_msgs;message_runtime")
+set(depends "cv_bridge;image_transport;roscpp;sensor_msgs;std_msgs;message_runtime;pcl_ros")
 foreach(depend ${depends})
   string(REPLACE " " ";" depend_list ${depend})
   # the package name of the dependency must be kept in a unique variable so that it is not overwritten in recursive calls

@@ -5,4 +5,4 @@ Description: Description of disp_cv
 Version: 0.0.0
 Cflags: -I/home/harsh/ros_ws/devel/include -I/home/harsh/ros_ws/src/disp_cv/include
 Libs: -L/home/harsh/ros_ws/devel/lib 
-Requires: cv_bridge image_transport roscpp sensor_msgs std_msgs message_runtime
+Requires: cv_bridge image_transport roscpp sensor_msgs std_msgs message_runtime pcl_ros

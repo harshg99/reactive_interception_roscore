@@ -8,4 +8,3 @@
 
 # modified environment variables
 export PWD="/home/harsh/ros_ws/build"
-export PYTHONPATH="/home/harsh/ros_ws/devel/lib/python2.7/dist-packages:$PYTHONPATH"

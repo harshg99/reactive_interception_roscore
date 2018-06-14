@@ -23,6 +23,22 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "/opt/ros/kinetic/include/opencv-3.3.1-dev/opencv"
   "/opt/ros/kinetic/include"
   "/opt/ros/kinetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp"
+  "/usr/include/pcl-1.7"
+  "/usr/include/eigen3"
+  "/usr/include/ni"
+  "/usr/include/vtk-6.2"
+  "/usr/include/hdf5/openmpi"
+  "/usr/lib/openmpi/include/openmpi/opal/mca/event/libevent2021/libevent"
+  "/usr/lib/openmpi/include/openmpi/opal/mca/event/libevent2021/libevent/include"
+  "/usr/lib/openmpi/include"
+  "/usr/lib/openmpi/include/openmpi"
+  "/usr/include/libxml2"
+  "/usr/include/jsoncpp"
+  "/usr/include/python2.7"
+  "/usr/include/x86_64-linux-gnu"
+  "/usr/include/freetype2"
+  "/usr/include/x86_64-linux-gnu/freetype2"
+  "/usr/include/tcl"
   )
 
 # Targets to which this target links.
