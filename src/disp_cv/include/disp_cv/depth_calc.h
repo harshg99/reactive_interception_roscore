@@ -15,6 +15,7 @@
 #include <pcl/point_types.h>
 #include <visualization_msgs/Marker.h>
 #include <geometry_msgs/Point.h>
+#include <queue>
 
 typedef pcl::PointCloud<pcl::PointXYZ> PC;
 
@@ -85,6 +86,7 @@ class depth{
       pcl::PointXY points[msg->boxes.size()][4];
       visualization_msgs::Marker line_Strip[msg->boxes.size()];
       visualization_msgs::Marker points_viz;
+
       for(size_t i=0;i<msg->boxes.size();i++){
         cv::rectangle(frame,toRect(msg->boxes[i],points,i),cv::Scalar(0,0,0),10);
       }
@@ -92,20 +94,25 @@ class depth{
       //visualisation of bounding boxes on point cloud
 
        points_viz.id=10;
-       points_viz.type=visualization_msgs::Marker::POINTS;
+       points_viz.type=visualization_msgs::Marker::SPHERE_LIST;
        points_viz.scale.x=0.3;
+       points_viz.scale.y=0.3;
+       points_viz.scale.z=0.3;
        points_viz.color.r=1.0;
+       points_viz.color.g=0.0;
+       points_viz.color.b=0.0;
+       points_viz.color.a=0.8;
        points_viz.header.stamp=ros::Time::now();
        points_viz.header.frame_id="camera_rgb_optical_frame";
       for(int i=0;i<msg->boxes.size();i++){
-        line_Strip[i].id=i;
-        line_Strip[i].type=visualization_msgs::Marker::LINE_STRIP;
-        line_Strip[i].scale.x=0.3;
-        line_Strip[i].color.r=1.0;
-        line_Strip[i].header.stamp=ros::Time::now();
-        line_Strip[i].header.frame_id="camera_rgb_optical_frame";
+     //   line_Strip[i].id=i;
+        //line_Strip[i].type=visualization_msgs::Marker::LINE_STRIP;
+      //  line_Strip[i].scale.x=2.0;
+    //    line_Strip[i].color.r=1.0;
+    //   line_Strip[i].header.stamp=ros::Time::now();
+    //    line_Strip[i].header.frame_id="camera_rgb_optical_frame";
 
-
+/*
         for(int j=0;j<4;j++){
           pcl::PointXYZ temp_point=pointcloud.at(points[i][j].x,points[i][j].y);
           geometry_msgs::Point p;
@@ -124,13 +131,18 @@ class depth{
           }
           line_Strip[i].points.push_back(p);
         }
-        pcl::PointXYZ temp_point=pointcloud.at((points[i][0].x+points[i][3].x)/2,(points[i][0].y+points[i][3].y)/2);
-        geometry_msgs::Point p;
-        p.z=temp_point.z;
-        p.x=temp_point.x;
-        p.y=temp_point.y;
+        */
+        pcl::PointXYZ temp_point=pointcloud.at((int)(msg->boxes[i].x+msg->boxes[i].w/2),(int)((msg->boxes[i].y+msg->boxes[i].h)/2));
+        geometry_msgs::Point p=calc_dist(msg->boxes[i]);
+        //p.z=temp_point.z;
+        //p.x=temp_point.x;
+        //p.y=temp_point.y;
+        //if(p.z<=3.5){
         points_viz.points.push_back(p);
-        visualiser.publish(line_Strip[i]);
+        //}
+       // ROS_INFO("Face At: x:%lf y:%lf z:%lf",p.x,p.y,p.z);
+
+       // visualiser.publish(line_Strip[i]);
       }
         visualiser.publish(points_viz);
 
@@ -147,7 +159,7 @@ class depth{
 
 
       points[i][0].x=box.x;
-      points[i][1].y=box.y;
+      points[i][0].y=box.y;
 
       points[i][1].x=box.x+box.width;
       points[i][1].y=box.y;
@@ -158,6 +170,8 @@ class depth{
       points[i][3].x=box.x;
       points[i][3].y=box.y+box.height;
 
+
+
       return box;
     }
 
@@ -165,6 +179,53 @@ class depth{
       pointcloud=*msg;
       pointCloudPublisher.publish(pointcloud);
     }
+
+
+    geometry_msgs::Point calc_dist(disp_cv::box box){
+      geometry_msgs::Point p;
+      p.x=0.0;p.y=0.0;p.z=0.0;
+     // int max=10;
+      std::queue<std::pair<int,int> > dfs_queue;
+
+      std::pair<int,int> point;
+      point.first=box.x;
+      point.second=box.y;
+      dfs_queue.push(point);
+
+
+      //standard dfs routine to find closest values of accuracy
+
+      while(!dfs_queue.empty()/*&& max>0*/ &&dfs_queue.size()<80){
+        std::pair<int,int> popped=dfs_queue.front();
+        dfs_queue.pop();
+        pcl::PointXYZ eval=pointcloud.at(popped.first,popped.second);
+        if(eval.z<=3.5){
+          p.x+=eval.x;
+          p.y+=eval.y;
+          p.z+=eval.z;
+          //max--;
+          return p;
+        }
+        else{
+          popped.first+=1;
+          dfs_queue.push(popped);
+          popped.first-=2;
+          dfs_queue.push(popped);
+          popped.first+=1;
+          popped.second+=1;
+          dfs_queue.push(popped);
+          popped.second-=2;
+          dfs_queue.push(popped);
+        }
+
+       // ROS_INFO("Max:%d", max);
+      }
+
+    //  p.x/=(10-max);p.y/=(10-max);p.z/=(10-max);
+   //   return p;
+      return p;
+    }
+
 };
 
 #endif // DEPTH_CALC_H
