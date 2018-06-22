@@ -22,7 +22,6 @@ typedef pcl::PointCloud<pcl::PointXYZ> PC;
 
 using namespace std;
 static const string OPENCV_WINDOW2 = "Image window2";
-
 class depth{
   private:
     ros::NodeHandle nh_;
@@ -35,6 +34,8 @@ class depth{
     ros::Publisher  pointCloudPublisher;
     ros::Publisher  visualiser;
     PC pointcloud;
+    int count;
+
   public:
     depth()
       : it_(nh_)
@@ -48,6 +49,7 @@ class depth{
       pointCloudListener=nh_.subscribe<PC>("/camera/depth_registered/points",1,&depth::PCCallBack,this);
       pointCloudPublisher=nh_.advertise<PC>("/pointcloud/points",1);
       visualiser=nh_.advertise<visualization_msgs::Marker>("/visualisation_marker",10);
+      count=0;
     }
     ~depth()
     {
@@ -93,13 +95,13 @@ class depth{
 
       //visualisation of bounding boxes on point cloud
 
-       points_viz.id=10;
+       points_viz.id=(count)%20;;
        points_viz.type=visualization_msgs::Marker::SPHERE_LIST;
-       points_viz.scale.x=0.3;
-       points_viz.scale.y=0.3;
-       points_viz.scale.z=0.3;
-       points_viz.color.r=1.0;
-       points_viz.color.g=0.0;
+       points_viz.scale.x=0.035;
+       points_viz.scale.y=0.035;
+       points_viz.scale.z=0.035;
+       points_viz.color.r=0.0;
+       points_viz.color.g=1.0;
        points_viz.color.b=0.0;
        points_viz.color.a=0.8;
        points_viz.header.stamp=ros::Time::now();
@@ -132,7 +134,7 @@ class depth{
           line_Strip[i].points.push_back(p);
         }
         */
-        pcl::PointXYZ temp_point=pointcloud.at((int)(msg->boxes[i].x+msg->boxes[i].w/2),(int)((msg->boxes[i].y+msg->boxes[i].h)/2));
+        //pcl::PointXYZ temp_point=pointcloud.at((int)(msg->boxes[i].x+msg->boxes[i].w/2),(int)((msg->boxes[i].y+msg->boxes[i].h)/2));
         geometry_msgs::Point p=calc_dist(msg->boxes[i]);
         //p.z=temp_point.z;
         //p.x=temp_point.x;
@@ -157,7 +159,7 @@ class depth{
       box.height=loc.h;
       box.width=loc.w;
 
-
+/*
       points[i][0].x=box.x;
       points[i][0].y=box.y;
 
@@ -170,7 +172,7 @@ class depth{
       points[i][3].x=box.x;
       points[i][3].y=box.y+box.height;
 
-
+*/
 
       return box;
     }
@@ -188,25 +190,29 @@ class depth{
       std::queue<std::pair<int,int> > dfs_queue;
 
       std::pair<int,int> point;
-      point.first=box.x;
-      point.second=box.y;
+      point.first=box.x+box.w/2;
+      point.second=box.y+box.h/2;
       dfs_queue.push(point);
 
 
       //standard dfs routine to find closest values of accuracy
 
-      while(!dfs_queue.empty()/*&& max>0*/ &&dfs_queue.size()<80){
+    //  while(!dfs_queue.empty()/*&& max>0*/ &&dfs_queue.size()<80){
         std::pair<int,int> popped=dfs_queue.front();
-        dfs_queue.pop();
+      //  dfs_queue.pop();
         pcl::PointXYZ eval=pointcloud.at(popped.first,popped.second);
-        if(eval.z<=3.5){
-          p.x+=eval.x;
-          p.y+=eval.y;
-          p.z+=eval.z;
-          //max--;
-          return p;
+     //   if(eval.z<=3.5){
+        if(eval.x!=NAN &&eval.y!=NAN &&eval.z!=NAN){
+          p.x=eval.x;
+          p.y=eval.y;
+          p.z=eval.z;
+          count++;
         }
-        else{
+          //max--;
+          while(!dfs_queue.empty()) dfs_queue.pop();
+          return p;
+       // }
+        /*else{
           popped.first+=1;
           dfs_queue.push(popped);
           popped.first-=2;
@@ -217,13 +223,13 @@ class depth{
           popped.second-=2;
           dfs_queue.push(popped);
         }
-
+*/
        // ROS_INFO("Max:%d", max);
-      }
+     // }
 
     //  p.x/=(10-max);p.y/=(10-max);p.z/=(10-max);
    //   return p;
-      return p;
+     // return p;
     }
 
 };

@@ -1,6 +1,6 @@
 # generated from genmsg/cmake/pkg-genmsg.context.in
 
-messages_str = "/home/harsh/ros_ws/src/disp_cv/msg/box.msg;/home/harsh/ros_ws/src/disp_cv/msg/multibox.msg"
+messages_str = "/home/harsh/ros_ws/src/disp_cv/msg/box.msg;/home/harsh/ros_ws/src/disp_cv/msg/multibox.msg;/home/harsh/ros_ws/src/disp_cv/msg/pos3dtime.msg;/home/harsh/ros_ws/src/disp_cv/msg/reg_pos3Dtime.msg"
 services_str = ""
 pkg_name = "disp_cv"
 dependencies_str = "sensor_msgs;std_msgs"

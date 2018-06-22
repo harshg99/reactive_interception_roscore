@@ -36,6 +36,8 @@ if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspeci
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/disp_cv/msg" TYPE FILE FILES
     "/home/harsh/ros_ws/src/disp_cv/msg/box.msg"
     "/home/harsh/ros_ws/src/disp_cv/msg/multibox.msg"
+    "/home/harsh/ros_ws/src/disp_cv/msg/pos3dtime.msg"
+    "/home/harsh/ros_ws/src/disp_cv/msg/reg_pos3Dtime.msg"
     )
 endif()
 

@@ -17,6 +17,7 @@ find_package(catkin REQUIRED COMPONENTS
   pcl_ros
 )
 find_package(OpenCV REQUIRED)
+find_package(Eigen3 REQUIRED)
 
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
@@ -56,6 +57,8 @@ find_package(OpenCV REQUIRED)
    FILES
    box.msg
    multibox.msg
+   pos3dtime.msg
+   reg_pos3Dtime.msg
 #   Message2.msg
  )
 
@@ -114,7 +117,9 @@ catkin_package(
  INCLUDE_DIRS include
 #  LIBRARIES disp-cv
   CATKIN_DEPENDS cv_bridge image_transport roscpp sensor_msgs std_msgs message_runtime pcl_ros
-#  DEPENDS system_lib
+  DEPENDS
+  system_lib
+  Eigen3
 )
 
 ###########
@@ -162,6 +167,12 @@ target_link_libraries(image
  )
 add_executable(calc_depth src/calc_depth.cpp)
 target_link_libraries( calc_depth
+   ${catkin_LIBRARIES}
+   ${OpenCV_LIBRARIES}
+ )
+
+add_executable(traj src/traj.cpp)
+target_link_libraries( traj
    ${catkin_LIBRARIES}
    ${OpenCV_LIBRARIES}
  )

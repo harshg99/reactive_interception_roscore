@@ -122,7 +122,7 @@ class publishBox{
          disp_cv::box box;
          box.x=boxes[i].x;
          box.y=boxes[i].y;
-         box.w=boxes[i].width;
+         box.w=boxes[i].width+15;
          box.h=boxes[i].height;
          //printf("Value: %d",box.h);
          all->boxes.push_back(box);
