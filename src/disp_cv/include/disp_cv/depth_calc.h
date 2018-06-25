@@ -135,12 +135,15 @@ class depth{
         }
         */
         //pcl::PointXYZ temp_point=pointcloud.at((int)(msg->boxes[i].x+msg->boxes[i].w/2),(int)((msg->boxes[i].y+msg->boxes[i].h)/2));
-        geometry_msgs::Point p=calc_dist(msg->boxes[i]);
+        if(!msg->boxes.empty()){
+          geometry_msgs::Point p=calc_dist(msg->boxes[i]);
+          points_viz.points.push_back(p);
+        }
         //p.z=temp_point.z;
         //p.x=temp_point.x;
         //p.y=temp_point.y;
         //if(p.z<=3.5){
-        points_viz.points.push_back(p);
+
         //}
        // ROS_INFO("Face At: x:%lf y:%lf z:%lf",p.x,p.y,p.z);
 
@@ -202,7 +205,7 @@ class depth{
       //  dfs_queue.pop();
         pcl::PointXYZ eval=pointcloud.at(popped.first,popped.second);
      //   if(eval.z<=3.5){
-        if(eval.x!=NAN &&eval.y!=NAN &&eval.z!=NAN){
+        if(eval.x!=NAN &&eval.y!=NAN &&eval.z!=NAN &&eval.z<=3.75&&eval.z>=0.4){
           p.x=eval.x;
           p.y=eval.y;
           p.z=eval.z;
