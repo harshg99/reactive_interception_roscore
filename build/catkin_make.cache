@@ -1,2 +1,2 @@
-disp_cv:display_cv:face_detect_ros:teleop_twist_keyboard
+disp_cv:display_cv:face_detect_ros:teleop_twist_keyboard:universal_robot/universal_robot:universal_robot/ur10_moveit_config:universal_robot/ur3_moveit_config:universal_robot/ur5_moveit_config:universal_robot/ur_bringup:universal_robot/ur_description:universal_robot/ur_driver:universal_robot/ur_gazebo:universal_robot/ur_kinematics:universal_robot/ur_msgs:ur_modern_driver
 -DCATKIN_DEVEL_PREFIX=/home/harsh/ros_ws/devel -DCMAKE_INSTALL_PREFIX=/home/harsh/ros_ws/install -G Unix Makefiles
