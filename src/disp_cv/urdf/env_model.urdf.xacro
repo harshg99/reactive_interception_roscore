@@ -1,0 +1,29 @@
+<?xml version="1.0" ?>
+<robot name="ur5_robot_and env" xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <xacro:include filename="$(find disp_cv)/urdf/table_info.urdf.xacro"/>
+  <xacro:include filename="$(find disp_cv)/urdf/camera_desc.urdf.xacro"/>
+  <xacro:include filename="$(find ur_description)/urdf/ur5.urdf.xacro"/>
+
+  <xacro:ur5_robot prefix="ur5_" joint_limited="true"/>
+
+  <joint name="camera_to_camera_holder" type="fixed">
+    <parent link="camera_holder"/>
+    <child link="camera_asus"/>
+    <origin xyz="0 0.15 0.625" rpy="0 0 0"/>
+  </joint>
+
+  <joint name="ur5_robot_to_mount" type="fixed">
+    <parent link="mount"/>
+    <child link="ur5_base_link"/>
+    <origin xyz="0 0 0.85" rpy="0 0 0"/>
+  </joint>
+
+  <link name="world" />
+
+ <joint name="world_joint" type="fixed">
+   <parent link="world" />
+   <child link = "base" />
+   <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+ </joint>
+</robot>
