@@ -2,93 +2,108 @@
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
 
 
-  <link name="base">
+<xacro:macro name="support">
+<material name ="custom">
+      <color rgba="0.3 0.1 0.3 1"/>
+      <ambient> .175 .175 .175  1.0</ambient>
+      <diffuse> .175 .175 .175  1.0</diffuse>
+      <specular> .175 .175 .175 1.000000 1.500000</specular>
+
+    </material>
+  <link name="base_support">
      <inertial>
           <mass value="10" />
-          <origin xyz="0 0 0" rpy="0 0 0"/>
-          <inertia ixx="0.0833" iyy="0.0833" izz="0.0633" ixy="0" ixz="0" iyz="0"/>
+          <origin xyz="0 0.0 0.175" rpy="0 0 0"/>
+          <inertia ixx="0.58541667" iyy="0.58541667" izz="1.066667" ixy="0" ixz="0" iyz="0"/>
      </inertial>
 
      <visual>
-       <origin xyz="0 0 0" rpy="0 0 0"/>
+       <origin xyz="0 0.0 0.175" rpy="0 0 0"/>
        <geometry>
             <box size="0.8 0.8 0.25 "/>
        </geometry>
-       <material name="blue_c">
+     <!--  <material>
          <color rgba="0.2 0 1 0.9"/>
-       </material>
+       </material>-->
+       <material name="custom"/>
      </visual>
      <collision>
+        <origin xyz="0 0.0 0.175" rpy="0 0 0"/>
         <geometry>
-            <box size="0.5 0.5 0.25"/>
+            <box size="0.8 0.8 0.25"/>
         </geometry>
      </collision>
   </link>
 
+
+
 <link name="camera_holder">
   <inertial>
        <mass value="4" />
-      <origin xyz="0 0 0" rpy="0 0 0"/>
-      <inertia ixx="0.0833" iyy="0.0833" izz="0.0633" ixy="0" ixz="0" iyz="0"/>
+
+      <inertia ixx="0.06375" iyy="0.114375" izz="0.084375" ixy="0" ixz="0" iyz="0"/>
   </inertial>
   <visual>
-      <origin xyz="0 0.0375 0" rpy="0 0 0"/>
+      <origin xyz="0 0.0475 0.1875" rpy="0 0 0"/>
       <geometry>
 
           <box size="0.45 0.225 0.375"/>
       </geometry>
 
-      <material name="green_c">
+     <!-- <material >
           <color rgba="0 1 0.1 0.5"/>
-      </material>
+      </material>-->
   </visual>
   <collision>
+      <origin xyz="0 0.0475 0.1875" rpy="0 0 0"/>
       <geometry>
            <box size="0.45 0.225 0.375"/>
       </geometry>
   </collision>
 </link>
+<joint name="base_to_camera_holder" type="fixed">
+   <parent link="base_support"/>
+   <child link="camera_holder"/>
+   <origin xyz="0 0.15 0.30" rpy="0 0 0"/>
+   <inertial>
+   <mass value="0.001"/>
+   <inertia ixx="5.1458e-5" iyy="5.1458e-5" izz="5.1458e-5" ixy="0" ixz="0" iyz="0"/>
+   </inertial>
+</joint>
+
 
   <link name="mount">
      <inertial>
         <mass value="7" />
-        <origin xyz="0 0 0" rpy="0 0 0"/>
-        <inertia ixx="0.0833" iyy="0.0833" izz="0.0633" ixy="0" ixz="0" iyz="0"/>
+
+        <inertia ixx="0.21984" iyy="0.21984" izz="0.0098398" ixy="0" ixz="0" iyz="0"/>
      </inertial>
      <visual>
-       <origin xyz="0 0 0" rpy="0 0 0"/>
+       <origin xyz="0 0 0.30" rpy="0 0 0"/>
        <geometry>
 
           <cylinder length="0.60" radius= "0.075"/>
        </geometry>
-       <material name="red_c">
+      <!-- <material >
         <color rgba="1 0.2 0 0.9"/>
-       </material>
+       </material> -->
      </visual>
+     <collision>
+     <origin xyz="0 0 0.30" rpy="0 0 0"/>
+         <geometry>
+              <cylinder length="0.60" radius="0.075"/>
+         </geometry>
+     </collision>
    </link>
-
-
-  <joint name="base_to_mount" type="fixed">
-    <parent link="base"/>
-    <child link="mount"/>
-    <origin xyz="0 0 0.25" rpy="0 0 0"/>
-    <inertial>
-    <mass value="1.0"/>
-    <inertia ixx="5.1458e-5" iyy="5.1458e-5" izz="5.1458e-5" ixy="0" ixz="0" iyz="0"/>
-    </inertial>
-  </joint>
-
-
-
-
- <joint name="base_to_camera_holder" type="fixed">
-    <parent link="base"/>
-    <child link="camera_holder"/>
-    <origin xyz="0 0.15 0.25" rpy="0 0 0"/>
-    <inertial>
-    <mass value="1.0"/>
-    <inertia ixx="5.1458e-5" iyy="5.1458e-5" izz="5.1458e-5" ixy="0" ixz="0" iyz="0"/>
-    </inertial>
- </joint>
+   <joint name="base_to_mount" type="fixed">
+     <parent link="base_support"/>
+     <child link="mount"/>
+     <origin xyz="0 0 0.30" rpy="0 0 0"/>
+     <inertial>
+     <mass value="0.001"/>
+     <inertia ixx="5.1458e-5" iyy="5.1458e-5" izz="5.1458e-5" ixy="0" ixz="0" iyz="0"/>
+     </inertial>
+   </joint>
+  </xacro:macro>
 
 </robot>
