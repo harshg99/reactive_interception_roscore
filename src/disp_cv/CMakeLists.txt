@@ -15,6 +15,7 @@ find_package(catkin REQUIRED COMPONENTS
   std_msgs
   message_generation
   pcl_ros
+  rospy
 )
 find_package(OpenCV REQUIRED)
 find_package(Eigen3 REQUIRED)
@@ -176,6 +177,12 @@ target_link_libraries( traj
    ${catkin_LIBRARIES}
    ${OpenCV_LIBRARIES}
  )
+
+add_executable(image_train src/image_train.cpp)
+target_link_libraries( image_train
+    ${catkin_LIBRARIES}
+    ${OpenCV_LIBRARIES}
+    )
 
 #############
 ## Install ##

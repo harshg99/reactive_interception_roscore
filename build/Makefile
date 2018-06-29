@@ -1492,6 +1492,19 @@ std_srvs_generate_messages_cpp/fast:
 .PHONY : std_srvs_generate_messages_cpp/fast
 
 #=============================================================================
+# Target rules for targets named image_train
+
+# Build rule for target.
+image_train: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 image_train
+.PHONY : image_train
+
+# fast build rule for target.
+image_train/fast:
+	$(MAKE) -f disp_cv/CMakeFiles/image_train.dir/build.make disp_cv/CMakeFiles/image_train.dir/build
+.PHONY : image_train/fast
+
+#=============================================================================
 # Target rules for targets named pcl_msgs_generate_messages_lisp
 
 # Build rule for target.
@@ -2581,6 +2594,7 @@ help:
 	@echo "... trajectory_msgs_generate_messages_eus"
 	@echo "... std_srvs_generate_messages_eus"
 	@echo "... std_srvs_generate_messages_cpp"
+	@echo "... image_train"
 	@echo "... pcl_msgs_generate_messages_lisp"
 	@echo "... pcl_msgs_generate_messages_eus"
 	@echo "... pcl_msgs_generate_messages_cpp"

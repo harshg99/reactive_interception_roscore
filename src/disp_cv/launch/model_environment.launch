@@ -13,12 +13,27 @@
 
   <!-- send robot urdf to param server -->
 <param unless="$(arg limited)" name="robot_description" command="$(find xacro)/xacro --inorder '$(find disp_cv)/urdf/env_model.urdf.xacro'" />
-  <!-- push robot_description to factory and spawn robot in gazebo -->
-  <node name="spawn_gazebo_model" pkg="gazebo_ros" type="spawn_model" args="-urdf -param robot_description -model ur5_robot_and_env" respawn="false" output="screen" />
 
+    <!-- push robot_description to factory and spawn robot in gazebo -->
+  <node name="spawn_gazebo_model" pkg="gazebo_ros" type="spawn_model" args="-urdf -param robot_description -model ur5robot" respawn="false" output="screen" />
+
+
+  <!--launching the controllers for the ur5 arm-->
   <include file="$(find ur_gazebo)/launch/controller_utils.launch"/>
 
   <rosparam file="$(find ur_gazebo)/controller/arm_controller_ur5.yaml" command="load"/>
   <node name="arm_controller_spawner" pkg="controller_manager" type="controller_manager" args="spawn arm_controller" respawn="false" output="screen"/>
+
+  <rosparam file="$(find disp_cv)/config/camera_controller.yaml" command="load"/>
+
+   <!--spawning the controller for the robot-->
+  <node name="controller_spawner" pkg="controller_manager" type="spawner" output="screen" respawn="false" ns="/ur5robot"
+   args="joint_state_controller effort_controller_1"/>
+
+
+  <node name="robot_state_publisher_camera" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen">
+    <remap from="/joint_states" to="ur5robot/joint_states"/>
+  </node>
+
 
 </launch>

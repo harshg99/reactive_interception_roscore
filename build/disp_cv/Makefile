@@ -90,6 +90,17 @@ install/local/fast: install/local
 
 .PHONY : install/local/fast
 
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
+
+# Special rule for the target install/strip
+install/strip/fast: install/strip
+
+.PHONY : install/strip/fast
+
 # Special rule for the target list_install_components
 list_install_components:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
@@ -110,17 +121,6 @@ test:
 test/fast: test
 
 .PHONY : test/fast
-
-# Special rule for the target install/strip
-install/strip: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip
-
-# Special rule for the target install/strip
-install/strip/fast: install/strip
-
-.PHONY : install/strip/fast
 
 # Special rule for the target edit_cache
 edit_cache:
@@ -194,6 +194,21 @@ std_srvs_generate_messages_cpp: disp_cv/CMakeFiles/std_srvs_generate_messages_cp
 std_srvs_generate_messages_cpp/fast:
 	cd /home/harsh/ros_ws/build && $(MAKE) -f disp_cv/CMakeFiles/std_srvs_generate_messages_cpp.dir/build.make disp_cv/CMakeFiles/std_srvs_generate_messages_cpp.dir/build
 .PHONY : std_srvs_generate_messages_cpp/fast
+
+# Convenience name for target.
+disp_cv/CMakeFiles/image_train.dir/rule:
+	cd /home/harsh/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 disp_cv/CMakeFiles/image_train.dir/rule
+.PHONY : disp_cv/CMakeFiles/image_train.dir/rule
+
+# Convenience name for target.
+image_train: disp_cv/CMakeFiles/image_train.dir/rule
+
+.PHONY : image_train
+
+# fast build rule for target.
+image_train/fast:
+	cd /home/harsh/ros_ws/build && $(MAKE) -f disp_cv/CMakeFiles/image_train.dir/build.make disp_cv/CMakeFiles/image_train.dir/build
+.PHONY : image_train/fast
 
 # Convenience name for target.
 disp_cv/CMakeFiles/pcl_msgs_generate_messages_lisp.dir/rule:
@@ -894,6 +909,33 @@ src/image.cpp.s:
 	cd /home/harsh/ros_ws/build && $(MAKE) -f disp_cv/CMakeFiles/image.dir/build.make disp_cv/CMakeFiles/image.dir/src/image.cpp.s
 .PHONY : src/image.cpp.s
 
+src/image_train.o: src/image_train.cpp.o
+
+.PHONY : src/image_train.o
+
+# target to build an object file
+src/image_train.cpp.o:
+	cd /home/harsh/ros_ws/build && $(MAKE) -f disp_cv/CMakeFiles/image_train.dir/build.make disp_cv/CMakeFiles/image_train.dir/src/image_train.cpp.o
+.PHONY : src/image_train.cpp.o
+
+src/image_train.i: src/image_train.cpp.i
+
+.PHONY : src/image_train.i
+
+# target to preprocess a source file
+src/image_train.cpp.i:
+	cd /home/harsh/ros_ws/build && $(MAKE) -f disp_cv/CMakeFiles/image_train.dir/build.make disp_cv/CMakeFiles/image_train.dir/src/image_train.cpp.i
+.PHONY : src/image_train.cpp.i
+
+src/image_train.s: src/image_train.cpp.s
+
+.PHONY : src/image_train.s
+
+# target to generate assembly for a file
+src/image_train.cpp.s:
+	cd /home/harsh/ros_ws/build && $(MAKE) -f disp_cv/CMakeFiles/image_train.dir/build.make disp_cv/CMakeFiles/image_train.dir/src/image_train.cpp.s
+.PHONY : src/image_train.cpp.s
+
 src/traj.o: src/traj.cpp.o
 
 .PHONY : src/traj.o
@@ -930,8 +972,10 @@ help:
 	@echo "... install"
 	@echo "... rebuild_cache"
 	@echo "... install/local"
+	@echo "... install/strip"
 	@echo "... std_srvs_generate_messages_eus"
 	@echo "... std_srvs_generate_messages_cpp"
+	@echo "... image_train"
 	@echo "... pcl_msgs_generate_messages_lisp"
 	@echo "... pcl_msgs_generate_messages_eus"
 	@echo "... pcl_msgs_generate_messages_cpp"
@@ -961,7 +1005,6 @@ help:
 	@echo "... _disp_cv_generate_messages_check_deps_reg_pos3Dtime"
 	@echo "... disp_cv_genpy"
 	@echo "... _disp_cv_generate_messages_check_deps_pos3dtime"
-	@echo "... install/strip"
 	@echo "... _disp_cv_generate_messages_check_deps_box"
 	@echo "... disp_cv_generate_messages_cpp"
 	@echo "... pcl_msgs_generate_messages_py"
@@ -985,6 +1028,9 @@ help:
 	@echo "... src/image.o"
 	@echo "... src/image.i"
 	@echo "... src/image.s"
+	@echo "... src/image_train.o"
+	@echo "... src/image_train.i"
+	@echo "... src/image_train.s"
 	@echo "... src/traj.o"
 	@echo "... src/traj.i"
 	@echo "... src/traj.s"

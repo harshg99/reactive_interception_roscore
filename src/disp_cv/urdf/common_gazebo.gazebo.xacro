@@ -1,11 +1,12 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
-
-  <gazebo>
-    <plugin name="ros_control" filename="libgazebo_ros_control.so">
-      <!--robotNamespace>/</robotNamespace-->
-      <!--robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType-->
+<gazebo>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+      <robotNamespace>/ur5robot</robotNamespace>
+      <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
     </plugin>
+</gazebo>
+
 
 <!--
     <plugin name="camera_plugin" filename="libgazebo_ros_openni_kinect.so">
@@ -50,6 +51,5 @@
       <chargeVoltage>16.41</chargeVoltage>
     </plugin>
 -->
-  </gazebo>
 
 </robot>

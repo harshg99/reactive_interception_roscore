@@ -15,8 +15,7 @@
 #include <opencv2/highgui/highgui.hpp>
 #include <opencv2/objdetect.hpp>
 #include <disp_cv/box.h>
-
-#include<disp_cv/multibox.h>
+#include <disp_cv/multibox.h>
 
 
 using namespace std;

@@ -1,0 +1,11 @@
+# Joint State Controller
+
+ur5robot:
+ joint_state_controller:
+  type: joint_state_controller/JointStateController
+  publish_rate: 50
+ effort_controller_1:
+  type: effort_controllers/JointPositionController
+  joint: camera_to_camera_holder
+  pid: {p: 100.0, i: 0.01, d: 10.0}
+
