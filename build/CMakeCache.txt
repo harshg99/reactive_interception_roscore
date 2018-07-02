@@ -647,6 +647,12 @@ ur_kinematics_BINARY_DIR:STATIC=/home/harsh/ros_ws/build/universal_robot/ur_kine
 ur_kinematics_SOURCE_DIR:STATIC=/home/harsh/ros_ws/src/universal_robot/ur_kinematics
 
 //Value Computed by CMake
+ur_modern_driver2_BINARY_DIR:STATIC=/home/harsh/ros_ws/build/ur_modern_driver2
+
+//Value Computed by CMake
+ur_modern_driver2_SOURCE_DIR:STATIC=/home/harsh/ros_ws/src/ur_modern_driver2
+
+//Value Computed by CMake
 ur_modern_driver_BINARY_DIR:STATIC=/home/harsh/ros_ws/build/ur_modern_driver
 
 //Value Computed by CMake
