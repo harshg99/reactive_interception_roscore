@@ -10,9 +10,9 @@ from math import pi
 
 JOINT_NAMES = ['shoulder_pan_joint', 'shoulder_lift_joint', 'elbow_joint',
                'wrist_1_joint', 'wrist_2_joint', 'wrist_3_joint']
-Q1 = [2.2,0,-1.57,0,0,0]
-Q2 = [1.5,0,-1.57,0,0,0]
-Q3 = [1.5,-0.2,-1.57,0,0,0]
+Q1 = [0.0,0.25,0.45,0,0,0]
+Q2 = [0.0,0.45,0.15,0,0,0]
+Q3 = [0.0,0.3,0.3,0,0,0]
 
 client = None
 
@@ -24,6 +24,7 @@ def move1():
     try:
         joint_states = rospy.wait_for_message("joint_states", JointState)
         joints_pos = joint_states.position
+        print str([q1[i] for i in xrange(0,6)])
         g.trajectory.points = [
             JointTrajectoryPoint(positions=joints_pos, velocities=[0]*6, time_from_start=rospy.Duration(0.0)),
             JointTrajectoryPoint(positions=Q1, velocities=[0]*6, time_from_start=rospy.Duration(2.0)),
@@ -48,6 +49,7 @@ def move_disordered():
     try:
         joint_states = rospy.wait_for_message("joint_states", JointState)
         joints_pos = joint_states.position
+        print str([q1[i] for i in xrange(0,6)])
         g.trajectory.points = [
             JointTrajectoryPoint(positions=joints_pos, velocities=[0]*6, time_from_start=rospy.Duration(0.0)),
             JointTrajectoryPoint(positions=q1, velocities=[0]*6, time_from_start=rospy.Duration(2.0)),
@@ -69,6 +71,7 @@ def move_repeated():
         joint_states = rospy.wait_for_message("joint_states", JointState)
         joints_pos = joint_states.position
         d = 2.0
+        print str([Q1[i] for i in xrange(0,6)])
         g.trajectory.points = [JointTrajectoryPoint(positions=joints_pos, velocities=[0]*6, time_from_start=rospy.Duration(0.0))]
         for i in range(10):
             g.trajectory.points.append(
@@ -95,6 +98,7 @@ def move_interrupt():
     try:
         joint_states = rospy.wait_for_message("joint_states", JointState)
         joints_pos = joint_states.position
+
         g.trajectory.points = [
             JointTrajectoryPoint(positions=joints_pos, velocities=[0]*6, time_from_start=rospy.Duration(0.0)),
             JointTrajectoryPoint(positions=Q1, velocities=[0]*6, time_from_start=rospy.Duration(2.0)),

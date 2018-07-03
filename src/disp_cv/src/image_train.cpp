@@ -10,6 +10,7 @@
 #include <image_transport/image_transport.h>
 #include <cv_bridge/cv_bridge.h>
 #include <sensor_msgs/image_encodings.h>
+#include <fstream>
 
 static std::string OPENCV_WINDOW="window_train";
 class Trainer
@@ -19,7 +20,9 @@ class Trainer
      image_transport::Subscriber image_sub_;
      image_transport::Publisher image_pub_;
      int count;
+     int lat;
      int option;
+     std::ofstream output;
    public:
      Trainer(int k)
        : it_(nh_)
@@ -32,7 +35,14 @@ class Trainer
 
        cv::namedWindow(OPENCV_WINDOW);
        count=0;
+       lat=0;
        option=k;
+       if(option==1){
+       output.open("/home/harsh/dataset/annot_data/posinfo.dat");
+       }
+       else{
+       output.open("/home/harsh/dataset/annot_data/bg.txt");
+       }
      }
 
      ~Trainer()
@@ -74,9 +84,13 @@ class Trainer
 
       cv::cvtColor(cv_ptr->image, frame_gray, cv::COLOR_BGR2GRAY );
       cv::imshow(OPENCV_WINDOW,frame_gray);
-
-      ss<<"//home/harsh/dataset/ball/ball"<<count<<".jpg";
+      if(lat>200)
+      {
+      ss<<"/home/harsh/dataset/ball/ball"<<count<<".jpg";
       count++;
+      output<<ss.str()<<" 1 0 0 192 192\n";
+      cv::imwrite(ss.str(),frame_gray);
+      }
       }
       else{
        cv::waitKey(3);
@@ -84,13 +98,14 @@ class Trainer
        cv::cvtColor(cv_ptr->image, frame_gray, cv::COLOR_BGR2GRAY );
        cv::imshow(OPENCV_WINDOW,frame_gray);
 
-       ss<<"//home/harsh/dataset/background/back"<<count<<".jpg";
+       ss<<"/home/harsh/dataset/background/back"<<count<<".jpg";
        count++;
+       output<<ss.str()<<"\n";
+       cv::imwrite(ss.str(),frame_gray);
       }
-
-
-      cv::imwrite(ss.str(),frame_gray);
+       lat++;
      }
+
 };
 
 

@@ -31,6 +31,8 @@ cv_bridge/cv_bridge.h
 -
 sensor_msgs/image_encodings.h
 -
+fstream
+-
 
 /opt/ros/kinetic/include/cv_bridge/cv_bridge.h
 sensor_msgs/Image.h
