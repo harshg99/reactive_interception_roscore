@@ -6,7 +6,7 @@
 #include<disp_cv/pos3dtime.h>
 #include<disp_cv/reg_pos3Dtime.h>
 
-#define COUNT 5
+#define COUNT 7
 class predict
 {
   private:

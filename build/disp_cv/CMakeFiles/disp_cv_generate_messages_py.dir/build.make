@@ -57,6 +57,7 @@ disp_cv/CMakeFiles/disp_cv_generate_messages_py: /home/harsh/ros_ws/devel/lib/py
 disp_cv/CMakeFiles/disp_cv_generate_messages_py: /home/harsh/ros_ws/devel/lib/python2.7/dist-packages/disp_cv/msg/_pos3dtime.py
 disp_cv/CMakeFiles/disp_cv_generate_messages_py: /home/harsh/ros_ws/devel/lib/python2.7/dist-packages/disp_cv/msg/_multibox.py
 disp_cv/CMakeFiles/disp_cv_generate_messages_py: /home/harsh/ros_ws/devel/lib/python2.7/dist-packages/disp_cv/msg/_box.py
+disp_cv/CMakeFiles/disp_cv_generate_messages_py: /home/harsh/ros_ws/devel/lib/python2.7/dist-packages/disp_cv/msg/_pose.py
 disp_cv/CMakeFiles/disp_cv_generate_messages_py: /home/harsh/ros_ws/devel/lib/python2.7/dist-packages/disp_cv/msg/__init__.py
 
 
@@ -82,12 +83,18 @@ disp_cv/CMakeFiles/disp_cv_generate_messages_py: /home/harsh/ros_ws/devel/lib/py
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/harsh/ros_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating Python from MSG disp_cv/box"
 	cd /home/harsh/ros_ws/build/disp_cv && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/harsh/ros_ws/src/disp_cv/msg/box.msg -Idisp_cv:/home/harsh/ros_ws/src/disp_cv/msg -Isensor_msgs:/opt/ros/kinetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/kinetic/share/geometry_msgs/cmake/../msg -p disp_cv -o /home/harsh/ros_ws/devel/lib/python2.7/dist-packages/disp_cv/msg
 
+/home/harsh/ros_ws/devel/lib/python2.7/dist-packages/disp_cv/msg/_pose.py: /opt/ros/kinetic/lib/genpy/genmsg_py.py
+/home/harsh/ros_ws/devel/lib/python2.7/dist-packages/disp_cv/msg/_pose.py: /home/harsh/ros_ws/src/disp_cv/msg/pose.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/harsh/ros_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Generating Python from MSG disp_cv/pose"
+	cd /home/harsh/ros_ws/build/disp_cv && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/harsh/ros_ws/src/disp_cv/msg/pose.msg -Idisp_cv:/home/harsh/ros_ws/src/disp_cv/msg -Isensor_msgs:/opt/ros/kinetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/kinetic/share/geometry_msgs/cmake/../msg -p disp_cv -o /home/harsh/ros_ws/devel/lib/python2.7/dist-packages/disp_cv/msg
+
 /home/harsh/ros_ws/devel/lib/python2.7/dist-packages/disp_cv/msg/__init__.py: /opt/ros/kinetic/lib/genpy/genmsg_py.py
 /home/harsh/ros_ws/devel/lib/python2.7/dist-packages/disp_cv/msg/__init__.py: /home/harsh/ros_ws/devel/lib/python2.7/dist-packages/disp_cv/msg/_reg_pos3Dtime.py
 /home/harsh/ros_ws/devel/lib/python2.7/dist-packages/disp_cv/msg/__init__.py: /home/harsh/ros_ws/devel/lib/python2.7/dist-packages/disp_cv/msg/_pos3dtime.py
 /home/harsh/ros_ws/devel/lib/python2.7/dist-packages/disp_cv/msg/__init__.py: /home/harsh/ros_ws/devel/lib/python2.7/dist-packages/disp_cv/msg/_multibox.py
 /home/harsh/ros_ws/devel/lib/python2.7/dist-packages/disp_cv/msg/__init__.py: /home/harsh/ros_ws/devel/lib/python2.7/dist-packages/disp_cv/msg/_box.py
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/harsh/ros_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Generating Python msg __init__.py for disp_cv"
+/home/harsh/ros_ws/devel/lib/python2.7/dist-packages/disp_cv/msg/__init__.py: /home/harsh/ros_ws/devel/lib/python2.7/dist-packages/disp_cv/msg/_pose.py
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/harsh/ros_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Generating Python msg __init__.py for disp_cv"
 	cd /home/harsh/ros_ws/build/disp_cv && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py -o /home/harsh/ros_ws/devel/lib/python2.7/dist-packages/disp_cv/msg --initpy
 
 disp_cv_generate_messages_py: disp_cv/CMakeFiles/disp_cv_generate_messages_py
@@ -95,6 +102,7 @@ disp_cv_generate_messages_py: /home/harsh/ros_ws/devel/lib/python2.7/dist-packag
 disp_cv_generate_messages_py: /home/harsh/ros_ws/devel/lib/python2.7/dist-packages/disp_cv/msg/_pos3dtime.py
 disp_cv_generate_messages_py: /home/harsh/ros_ws/devel/lib/python2.7/dist-packages/disp_cv/msg/_multibox.py
 disp_cv_generate_messages_py: /home/harsh/ros_ws/devel/lib/python2.7/dist-packages/disp_cv/msg/_box.py
+disp_cv_generate_messages_py: /home/harsh/ros_ws/devel/lib/python2.7/dist-packages/disp_cv/msg/_pose.py
 disp_cv_generate_messages_py: /home/harsh/ros_ws/devel/lib/python2.7/dist-packages/disp_cv/msg/__init__.py
 disp_cv_generate_messages_py: disp_cv/CMakeFiles/disp_cv_generate_messages_py.dir/build.make
 

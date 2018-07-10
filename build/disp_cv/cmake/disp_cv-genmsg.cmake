@@ -1,6 +1,6 @@
 # generated from genmsg/cmake/pkg-genmsg.cmake.em
 
-message(STATUS "disp_cv: 4 messages, 0 services")
+message(STATUS "disp_cv: 5 messages, 0 services")
 
 set(MSG_I_FLAGS "-Idisp_cv:/home/harsh/ros_ws/src/disp_cv/msg;-Isensor_msgs:/opt/ros/kinetic/share/sensor_msgs/cmake/../msg;-Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg;-Igeometry_msgs:/opt/ros/kinetic/share/geometry_msgs/cmake/../msg")
 
@@ -37,6 +37,11 @@ add_custom_target(_disp_cv_generate_messages_check_deps_${_filename}
   COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "disp_cv" "/home/harsh/ros_ws/src/disp_cv/msg/multibox.msg" "disp_cv/box"
 )
 
+get_filename_component(_filename "/home/harsh/ros_ws/src/disp_cv/msg/pose.msg" NAME_WE)
+add_custom_target(_disp_cv_generate_messages_check_deps_${_filename}
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "disp_cv" "/home/harsh/ros_ws/src/disp_cv/msg/pose.msg" ""
+)
+
 #
 #  langs = gencpp;geneus;genlisp;gennodejs;genpy
 #
@@ -67,6 +72,12 @@ _generate_msg_cpp(disp_cv
   ""
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/disp_cv
 )
+_generate_msg_cpp(disp_cv
+  "/home/harsh/ros_ws/src/disp_cv/msg/pose.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/disp_cv
+)
 
 ### Generating Services
 
@@ -89,6 +100,8 @@ add_dependencies(disp_cv_generate_messages_cpp _disp_cv_generate_messages_check_
 get_filename_component(_filename "/home/harsh/ros_ws/src/disp_cv/msg/box.msg" NAME_WE)
 add_dependencies(disp_cv_generate_messages_cpp _disp_cv_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/harsh/ros_ws/src/disp_cv/msg/multibox.msg" NAME_WE)
+add_dependencies(disp_cv_generate_messages_cpp _disp_cv_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/harsh/ros_ws/src/disp_cv/msg/pose.msg" NAME_WE)
 add_dependencies(disp_cv_generate_messages_cpp _disp_cv_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -124,6 +137,12 @@ _generate_msg_eus(disp_cv
   ""
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/disp_cv
 )
+_generate_msg_eus(disp_cv
+  "/home/harsh/ros_ws/src/disp_cv/msg/pose.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/disp_cv
+)
 
 ### Generating Services
 
@@ -146,6 +165,8 @@ add_dependencies(disp_cv_generate_messages_eus _disp_cv_generate_messages_check_
 get_filename_component(_filename "/home/harsh/ros_ws/src/disp_cv/msg/box.msg" NAME_WE)
 add_dependencies(disp_cv_generate_messages_eus _disp_cv_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/harsh/ros_ws/src/disp_cv/msg/multibox.msg" NAME_WE)
+add_dependencies(disp_cv_generate_messages_eus _disp_cv_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/harsh/ros_ws/src/disp_cv/msg/pose.msg" NAME_WE)
 add_dependencies(disp_cv_generate_messages_eus _disp_cv_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -181,6 +202,12 @@ _generate_msg_lisp(disp_cv
   ""
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/disp_cv
 )
+_generate_msg_lisp(disp_cv
+  "/home/harsh/ros_ws/src/disp_cv/msg/pose.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/disp_cv
+)
 
 ### Generating Services
 
@@ -203,6 +230,8 @@ add_dependencies(disp_cv_generate_messages_lisp _disp_cv_generate_messages_check
 get_filename_component(_filename "/home/harsh/ros_ws/src/disp_cv/msg/box.msg" NAME_WE)
 add_dependencies(disp_cv_generate_messages_lisp _disp_cv_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/harsh/ros_ws/src/disp_cv/msg/multibox.msg" NAME_WE)
+add_dependencies(disp_cv_generate_messages_lisp _disp_cv_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/harsh/ros_ws/src/disp_cv/msg/pose.msg" NAME_WE)
 add_dependencies(disp_cv_generate_messages_lisp _disp_cv_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -238,6 +267,12 @@ _generate_msg_nodejs(disp_cv
   ""
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/disp_cv
 )
+_generate_msg_nodejs(disp_cv
+  "/home/harsh/ros_ws/src/disp_cv/msg/pose.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/disp_cv
+)
 
 ### Generating Services
 
@@ -260,6 +295,8 @@ add_dependencies(disp_cv_generate_messages_nodejs _disp_cv_generate_messages_che
 get_filename_component(_filename "/home/harsh/ros_ws/src/disp_cv/msg/box.msg" NAME_WE)
 add_dependencies(disp_cv_generate_messages_nodejs _disp_cv_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/harsh/ros_ws/src/disp_cv/msg/multibox.msg" NAME_WE)
+add_dependencies(disp_cv_generate_messages_nodejs _disp_cv_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/harsh/ros_ws/src/disp_cv/msg/pose.msg" NAME_WE)
 add_dependencies(disp_cv_generate_messages_nodejs _disp_cv_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -295,6 +332,12 @@ _generate_msg_py(disp_cv
   ""
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/disp_cv
 )
+_generate_msg_py(disp_cv
+  "/home/harsh/ros_ws/src/disp_cv/msg/pose.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/disp_cv
+)
 
 ### Generating Services
 
@@ -317,6 +360,8 @@ add_dependencies(disp_cv_generate_messages_py _disp_cv_generate_messages_check_d
 get_filename_component(_filename "/home/harsh/ros_ws/src/disp_cv/msg/box.msg" NAME_WE)
 add_dependencies(disp_cv_generate_messages_py _disp_cv_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/harsh/ros_ws/src/disp_cv/msg/multibox.msg" NAME_WE)
+add_dependencies(disp_cv_generate_messages_py _disp_cv_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/harsh/ros_ws/src/disp_cv/msg/pose.msg" NAME_WE)
 add_dependencies(disp_cv_generate_messages_py _disp_cv_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility

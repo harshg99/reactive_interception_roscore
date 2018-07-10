@@ -1466,6 +1466,32 @@ trajectory_msgs_generate_messages_eus/fast:
 .PHONY : trajectory_msgs_generate_messages_eus/fast
 
 #=============================================================================
+# Target rules for targets named traj_tcp_server
+
+# Build rule for target.
+traj_tcp_server: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 traj_tcp_server
+.PHONY : traj_tcp_server
+
+# fast build rule for target.
+traj_tcp_server/fast:
+	$(MAKE) -f disp_cv/CMakeFiles/traj_tcp_server.dir/build.make disp_cv/CMakeFiles/traj_tcp_server.dir/build
+.PHONY : traj_tcp_server/fast
+
+#=============================================================================
+# Target rules for targets named image_train
+
+# Build rule for target.
+image_train: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 image_train
+.PHONY : image_train
+
+# fast build rule for target.
+image_train/fast:
+	$(MAKE) -f disp_cv/CMakeFiles/image_train.dir/build.make disp_cv/CMakeFiles/image_train.dir/build
+.PHONY : image_train/fast
+
+#=============================================================================
 # Target rules for targets named std_srvs_generate_messages_eus
 
 # Build rule for target.
@@ -1490,19 +1516,6 @@ std_srvs_generate_messages_cpp: cmake_check_build_system
 std_srvs_generate_messages_cpp/fast:
 	$(MAKE) -f disp_cv/CMakeFiles/std_srvs_generate_messages_cpp.dir/build.make disp_cv/CMakeFiles/std_srvs_generate_messages_cpp.dir/build
 .PHONY : std_srvs_generate_messages_cpp/fast
-
-#=============================================================================
-# Target rules for targets named image_train
-
-# Build rule for target.
-image_train: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 image_train
-.PHONY : image_train
-
-# fast build rule for target.
-image_train/fast:
-	$(MAKE) -f disp_cv/CMakeFiles/image_train.dir/build.make disp_cv/CMakeFiles/image_train.dir/build
-.PHONY : image_train/fast
 
 #=============================================================================
 # Target rules for targets named pcl_msgs_generate_messages_lisp
@@ -1867,6 +1880,19 @@ _disp_cv_generate_messages_check_deps_box: cmake_check_build_system
 _disp_cv_generate_messages_check_deps_box/fast:
 	$(MAKE) -f disp_cv/CMakeFiles/_disp_cv_generate_messages_check_deps_box.dir/build.make disp_cv/CMakeFiles/_disp_cv_generate_messages_check_deps_box.dir/build
 .PHONY : _disp_cv_generate_messages_check_deps_box/fast
+
+#=============================================================================
+# Target rules for targets named _disp_cv_generate_messages_check_deps_pose
+
+# Build rule for target.
+_disp_cv_generate_messages_check_deps_pose: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _disp_cv_generate_messages_check_deps_pose
+.PHONY : _disp_cv_generate_messages_check_deps_pose
+
+# fast build rule for target.
+_disp_cv_generate_messages_check_deps_pose/fast:
+	$(MAKE) -f disp_cv/CMakeFiles/_disp_cv_generate_messages_check_deps_pose.dir/build.make disp_cv/CMakeFiles/_disp_cv_generate_messages_check_deps_pose.dir/build
+.PHONY : _disp_cv_generate_messages_check_deps_pose/fast
 
 #=============================================================================
 # Target rules for targets named disp_cv_generate_messages_cpp
@@ -2592,9 +2618,10 @@ help:
 	@echo "... tf_generate_messages_py"
 	@echo "... trajectory_msgs_generate_messages_cpp"
 	@echo "... trajectory_msgs_generate_messages_eus"
+	@echo "... traj_tcp_server"
+	@echo "... image_train"
 	@echo "... std_srvs_generate_messages_eus"
 	@echo "... std_srvs_generate_messages_cpp"
-	@echo "... image_train"
 	@echo "... pcl_msgs_generate_messages_lisp"
 	@echo "... pcl_msgs_generate_messages_eus"
 	@echo "... pcl_msgs_generate_messages_cpp"
@@ -2623,6 +2650,7 @@ help:
 	@echo "... disp_cv_genpy"
 	@echo "... _disp_cv_generate_messages_check_deps_pos3dtime"
 	@echo "... _disp_cv_generate_messages_check_deps_box"
+	@echo "... _disp_cv_generate_messages_check_deps_pose"
 	@echo "... disp_cv_generate_messages_cpp"
 	@echo "... pcl_msgs_generate_messages_py"
 	@echo "... disp_cv_generate_messages_py"

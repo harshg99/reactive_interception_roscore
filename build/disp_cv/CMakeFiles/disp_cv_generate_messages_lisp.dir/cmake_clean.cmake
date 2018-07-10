@@ -4,6 +4,7 @@ file(REMOVE_RECURSE
   "/home/harsh/ros_ws/devel/share/common-lisp/ros/disp_cv/msg/pos3dtime.lisp"
   "/home/harsh/ros_ws/devel/share/common-lisp/ros/disp_cv/msg/multibox.lisp"
   "/home/harsh/ros_ws/devel/share/common-lisp/ros/disp_cv/msg/box.lisp"
+  "/home/harsh/ros_ws/devel/share/common-lisp/ros/disp_cv/msg/pose.lisp"
 )
 
 # Per-language clean rules from dependency scanning.

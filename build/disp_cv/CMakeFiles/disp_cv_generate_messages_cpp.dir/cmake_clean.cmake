@@ -4,6 +4,7 @@ file(REMOVE_RECURSE
   "/home/harsh/ros_ws/devel/include/disp_cv/pos3dtime.h"
   "/home/harsh/ros_ws/devel/include/disp_cv/multibox.h"
   "/home/harsh/ros_ws/devel/include/disp_cv/box.h"
+  "/home/harsh/ros_ws/devel/include/disp_cv/pose.h"
 )
 
 # Per-language clean rules from dependency scanning.

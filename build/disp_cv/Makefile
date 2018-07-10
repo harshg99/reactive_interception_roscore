@@ -166,6 +166,36 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
+disp_cv/CMakeFiles/traj_tcp_server.dir/rule:
+	cd /home/harsh/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 disp_cv/CMakeFiles/traj_tcp_server.dir/rule
+.PHONY : disp_cv/CMakeFiles/traj_tcp_server.dir/rule
+
+# Convenience name for target.
+traj_tcp_server: disp_cv/CMakeFiles/traj_tcp_server.dir/rule
+
+.PHONY : traj_tcp_server
+
+# fast build rule for target.
+traj_tcp_server/fast:
+	cd /home/harsh/ros_ws/build && $(MAKE) -f disp_cv/CMakeFiles/traj_tcp_server.dir/build.make disp_cv/CMakeFiles/traj_tcp_server.dir/build
+.PHONY : traj_tcp_server/fast
+
+# Convenience name for target.
+disp_cv/CMakeFiles/image_train.dir/rule:
+	cd /home/harsh/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 disp_cv/CMakeFiles/image_train.dir/rule
+.PHONY : disp_cv/CMakeFiles/image_train.dir/rule
+
+# Convenience name for target.
+image_train: disp_cv/CMakeFiles/image_train.dir/rule
+
+.PHONY : image_train
+
+# fast build rule for target.
+image_train/fast:
+	cd /home/harsh/ros_ws/build && $(MAKE) -f disp_cv/CMakeFiles/image_train.dir/build.make disp_cv/CMakeFiles/image_train.dir/build
+.PHONY : image_train/fast
+
+# Convenience name for target.
 disp_cv/CMakeFiles/std_srvs_generate_messages_eus.dir/rule:
 	cd /home/harsh/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 disp_cv/CMakeFiles/std_srvs_generate_messages_eus.dir/rule
 .PHONY : disp_cv/CMakeFiles/std_srvs_generate_messages_eus.dir/rule
@@ -194,21 +224,6 @@ std_srvs_generate_messages_cpp: disp_cv/CMakeFiles/std_srvs_generate_messages_cp
 std_srvs_generate_messages_cpp/fast:
 	cd /home/harsh/ros_ws/build && $(MAKE) -f disp_cv/CMakeFiles/std_srvs_generate_messages_cpp.dir/build.make disp_cv/CMakeFiles/std_srvs_generate_messages_cpp.dir/build
 .PHONY : std_srvs_generate_messages_cpp/fast
-
-# Convenience name for target.
-disp_cv/CMakeFiles/image_train.dir/rule:
-	cd /home/harsh/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 disp_cv/CMakeFiles/image_train.dir/rule
-.PHONY : disp_cv/CMakeFiles/image_train.dir/rule
-
-# Convenience name for target.
-image_train: disp_cv/CMakeFiles/image_train.dir/rule
-
-.PHONY : image_train
-
-# fast build rule for target.
-image_train/fast:
-	cd /home/harsh/ros_ws/build && $(MAKE) -f disp_cv/CMakeFiles/image_train.dir/build.make disp_cv/CMakeFiles/image_train.dir/build
-.PHONY : image_train/fast
 
 # Convenience name for target.
 disp_cv/CMakeFiles/pcl_msgs_generate_messages_lisp.dir/rule:
@@ -631,6 +646,21 @@ _disp_cv_generate_messages_check_deps_box/fast:
 .PHONY : _disp_cv_generate_messages_check_deps_box/fast
 
 # Convenience name for target.
+disp_cv/CMakeFiles/_disp_cv_generate_messages_check_deps_pose.dir/rule:
+	cd /home/harsh/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 disp_cv/CMakeFiles/_disp_cv_generate_messages_check_deps_pose.dir/rule
+.PHONY : disp_cv/CMakeFiles/_disp_cv_generate_messages_check_deps_pose.dir/rule
+
+# Convenience name for target.
+_disp_cv_generate_messages_check_deps_pose: disp_cv/CMakeFiles/_disp_cv_generate_messages_check_deps_pose.dir/rule
+
+.PHONY : _disp_cv_generate_messages_check_deps_pose
+
+# fast build rule for target.
+_disp_cv_generate_messages_check_deps_pose/fast:
+	cd /home/harsh/ros_ws/build && $(MAKE) -f disp_cv/CMakeFiles/_disp_cv_generate_messages_check_deps_pose.dir/build.make disp_cv/CMakeFiles/_disp_cv_generate_messages_check_deps_pose.dir/build
+.PHONY : _disp_cv_generate_messages_check_deps_pose/fast
+
+# Convenience name for target.
 disp_cv/CMakeFiles/disp_cv_generate_messages_cpp.dir/rule:
 	cd /home/harsh/ros_ws/build && $(MAKE) -f CMakeFiles/Makefile2 disp_cv/CMakeFiles/disp_cv_generate_messages_cpp.dir/rule
 .PHONY : disp_cv/CMakeFiles/disp_cv_generate_messages_cpp.dir/rule
@@ -963,6 +993,33 @@ src/traj.cpp.s:
 	cd /home/harsh/ros_ws/build && $(MAKE) -f disp_cv/CMakeFiles/traj.dir/build.make disp_cv/CMakeFiles/traj.dir/src/traj.cpp.s
 .PHONY : src/traj.cpp.s
 
+src/traj_tcp_server.o: src/traj_tcp_server.cpp.o
+
+.PHONY : src/traj_tcp_server.o
+
+# target to build an object file
+src/traj_tcp_server.cpp.o:
+	cd /home/harsh/ros_ws/build && $(MAKE) -f disp_cv/CMakeFiles/traj_tcp_server.dir/build.make disp_cv/CMakeFiles/traj_tcp_server.dir/src/traj_tcp_server.cpp.o
+.PHONY : src/traj_tcp_server.cpp.o
+
+src/traj_tcp_server.i: src/traj_tcp_server.cpp.i
+
+.PHONY : src/traj_tcp_server.i
+
+# target to preprocess a source file
+src/traj_tcp_server.cpp.i:
+	cd /home/harsh/ros_ws/build && $(MAKE) -f disp_cv/CMakeFiles/traj_tcp_server.dir/build.make disp_cv/CMakeFiles/traj_tcp_server.dir/src/traj_tcp_server.cpp.i
+.PHONY : src/traj_tcp_server.cpp.i
+
+src/traj_tcp_server.s: src/traj_tcp_server.cpp.s
+
+.PHONY : src/traj_tcp_server.s
+
+# target to generate assembly for a file
+src/traj_tcp_server.cpp.s:
+	cd /home/harsh/ros_ws/build && $(MAKE) -f disp_cv/CMakeFiles/traj_tcp_server.dir/build.make disp_cv/CMakeFiles/traj_tcp_server.dir/src/traj_tcp_server.cpp.s
+.PHONY : src/traj_tcp_server.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -973,9 +1030,10 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... install/local"
 	@echo "... install/strip"
+	@echo "... traj_tcp_server"
+	@echo "... image_train"
 	@echo "... std_srvs_generate_messages_eus"
 	@echo "... std_srvs_generate_messages_cpp"
-	@echo "... image_train"
 	@echo "... pcl_msgs_generate_messages_lisp"
 	@echo "... pcl_msgs_generate_messages_eus"
 	@echo "... pcl_msgs_generate_messages_cpp"
@@ -1006,6 +1064,7 @@ help:
 	@echo "... disp_cv_genpy"
 	@echo "... _disp_cv_generate_messages_check_deps_pos3dtime"
 	@echo "... _disp_cv_generate_messages_check_deps_box"
+	@echo "... _disp_cv_generate_messages_check_deps_pose"
 	@echo "... disp_cv_generate_messages_cpp"
 	@echo "... pcl_msgs_generate_messages_py"
 	@echo "... disp_cv_generate_messages_py"
@@ -1034,6 +1093,9 @@ help:
 	@echo "... src/traj.o"
 	@echo "... src/traj.i"
 	@echo "... src/traj.s"
+	@echo "... src/traj_tcp_server.o"
+	@echo "... src/traj_tcp_server.i"
+	@echo "... src/traj_tcp_server.s"
 .PHONY : help
 
 

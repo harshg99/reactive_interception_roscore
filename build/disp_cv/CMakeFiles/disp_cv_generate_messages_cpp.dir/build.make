@@ -57,6 +57,7 @@ disp_cv/CMakeFiles/disp_cv_generate_messages_cpp: /home/harsh/ros_ws/devel/inclu
 disp_cv/CMakeFiles/disp_cv_generate_messages_cpp: /home/harsh/ros_ws/devel/include/disp_cv/pos3dtime.h
 disp_cv/CMakeFiles/disp_cv_generate_messages_cpp: /home/harsh/ros_ws/devel/include/disp_cv/multibox.h
 disp_cv/CMakeFiles/disp_cv_generate_messages_cpp: /home/harsh/ros_ws/devel/include/disp_cv/box.h
+disp_cv/CMakeFiles/disp_cv_generate_messages_cpp: /home/harsh/ros_ws/devel/include/disp_cv/pose.h
 
 
 /home/harsh/ros_ws/devel/include/disp_cv/reg_pos3Dtime.h: /opt/ros/kinetic/lib/gencpp/gen_cpp.py
@@ -85,11 +86,18 @@ disp_cv/CMakeFiles/disp_cv_generate_messages_cpp: /home/harsh/ros_ws/devel/inclu
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/harsh/ros_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating C++ code from disp_cv/box.msg"
 	cd /home/harsh/ros_ws/src/disp_cv && /home/harsh/ros_ws/build/catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/harsh/ros_ws/src/disp_cv/msg/box.msg -Idisp_cv:/home/harsh/ros_ws/src/disp_cv/msg -Isensor_msgs:/opt/ros/kinetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/kinetic/share/geometry_msgs/cmake/../msg -p disp_cv -o /home/harsh/ros_ws/devel/include/disp_cv -e /opt/ros/kinetic/share/gencpp/cmake/..
 
+/home/harsh/ros_ws/devel/include/disp_cv/pose.h: /opt/ros/kinetic/lib/gencpp/gen_cpp.py
+/home/harsh/ros_ws/devel/include/disp_cv/pose.h: /home/harsh/ros_ws/src/disp_cv/msg/pose.msg
+/home/harsh/ros_ws/devel/include/disp_cv/pose.h: /opt/ros/kinetic/share/gencpp/msg.h.template
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/harsh/ros_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Generating C++ code from disp_cv/pose.msg"
+	cd /home/harsh/ros_ws/src/disp_cv && /home/harsh/ros_ws/build/catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/harsh/ros_ws/src/disp_cv/msg/pose.msg -Idisp_cv:/home/harsh/ros_ws/src/disp_cv/msg -Isensor_msgs:/opt/ros/kinetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/kinetic/share/geometry_msgs/cmake/../msg -p disp_cv -o /home/harsh/ros_ws/devel/include/disp_cv -e /opt/ros/kinetic/share/gencpp/cmake/..
+
 disp_cv_generate_messages_cpp: disp_cv/CMakeFiles/disp_cv_generate_messages_cpp
 disp_cv_generate_messages_cpp: /home/harsh/ros_ws/devel/include/disp_cv/reg_pos3Dtime.h
 disp_cv_generate_messages_cpp: /home/harsh/ros_ws/devel/include/disp_cv/pos3dtime.h
 disp_cv_generate_messages_cpp: /home/harsh/ros_ws/devel/include/disp_cv/multibox.h
 disp_cv_generate_messages_cpp: /home/harsh/ros_ws/devel/include/disp_cv/box.h
+disp_cv_generate_messages_cpp: /home/harsh/ros_ws/devel/include/disp_cv/pose.h
 disp_cv_generate_messages_cpp: disp_cv/CMakeFiles/disp_cv_generate_messages_cpp.dir/build.make
 
 .PHONY : disp_cv_generate_messages_cpp

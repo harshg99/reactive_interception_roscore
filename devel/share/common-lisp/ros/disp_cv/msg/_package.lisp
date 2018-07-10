@@ -7,6 +7,8 @@
    "MULTIBOX"
    "<POS3DTIME>"
    "POS3DTIME"
+   "<POSE>"
+   "POSE"
    "<REG_POS3DTIME>"
    "REG_POS3DTIME"
   ))

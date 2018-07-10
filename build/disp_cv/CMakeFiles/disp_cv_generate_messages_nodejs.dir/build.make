@@ -57,6 +57,7 @@ disp_cv/CMakeFiles/disp_cv_generate_messages_nodejs: /home/harsh/ros_ws/devel/sh
 disp_cv/CMakeFiles/disp_cv_generate_messages_nodejs: /home/harsh/ros_ws/devel/share/gennodejs/ros/disp_cv/msg/pos3dtime.js
 disp_cv/CMakeFiles/disp_cv_generate_messages_nodejs: /home/harsh/ros_ws/devel/share/gennodejs/ros/disp_cv/msg/multibox.js
 disp_cv/CMakeFiles/disp_cv_generate_messages_nodejs: /home/harsh/ros_ws/devel/share/gennodejs/ros/disp_cv/msg/box.js
+disp_cv/CMakeFiles/disp_cv_generate_messages_nodejs: /home/harsh/ros_ws/devel/share/gennodejs/ros/disp_cv/msg/pose.js
 
 
 /home/harsh/ros_ws/devel/share/gennodejs/ros/disp_cv/msg/reg_pos3Dtime.js: /opt/ros/kinetic/lib/gennodejs/gen_nodejs.py
@@ -81,11 +82,17 @@ disp_cv/CMakeFiles/disp_cv_generate_messages_nodejs: /home/harsh/ros_ws/devel/sh
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/harsh/ros_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating Javascript code from disp_cv/box.msg"
 	cd /home/harsh/ros_ws/build/disp_cv && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/harsh/ros_ws/src/disp_cv/msg/box.msg -Idisp_cv:/home/harsh/ros_ws/src/disp_cv/msg -Isensor_msgs:/opt/ros/kinetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/kinetic/share/geometry_msgs/cmake/../msg -p disp_cv -o /home/harsh/ros_ws/devel/share/gennodejs/ros/disp_cv/msg
 
+/home/harsh/ros_ws/devel/share/gennodejs/ros/disp_cv/msg/pose.js: /opt/ros/kinetic/lib/gennodejs/gen_nodejs.py
+/home/harsh/ros_ws/devel/share/gennodejs/ros/disp_cv/msg/pose.js: /home/harsh/ros_ws/src/disp_cv/msg/pose.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/harsh/ros_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Generating Javascript code from disp_cv/pose.msg"
+	cd /home/harsh/ros_ws/build/disp_cv && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/harsh/ros_ws/src/disp_cv/msg/pose.msg -Idisp_cv:/home/harsh/ros_ws/src/disp_cv/msg -Isensor_msgs:/opt/ros/kinetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/kinetic/share/geometry_msgs/cmake/../msg -p disp_cv -o /home/harsh/ros_ws/devel/share/gennodejs/ros/disp_cv/msg
+
 disp_cv_generate_messages_nodejs: disp_cv/CMakeFiles/disp_cv_generate_messages_nodejs
 disp_cv_generate_messages_nodejs: /home/harsh/ros_ws/devel/share/gennodejs/ros/disp_cv/msg/reg_pos3Dtime.js
 disp_cv_generate_messages_nodejs: /home/harsh/ros_ws/devel/share/gennodejs/ros/disp_cv/msg/pos3dtime.js
 disp_cv_generate_messages_nodejs: /home/harsh/ros_ws/devel/share/gennodejs/ros/disp_cv/msg/multibox.js
 disp_cv_generate_messages_nodejs: /home/harsh/ros_ws/devel/share/gennodejs/ros/disp_cv/msg/box.js
+disp_cv_generate_messages_nodejs: /home/harsh/ros_ws/devel/share/gennodejs/ros/disp_cv/msg/pose.js
 disp_cv_generate_messages_nodejs: disp_cv/CMakeFiles/disp_cv_generate_messages_nodejs.dir/build.make
 
 .PHONY : disp_cv_generate_messages_nodejs

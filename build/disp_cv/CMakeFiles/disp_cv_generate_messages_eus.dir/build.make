@@ -57,6 +57,7 @@ disp_cv/CMakeFiles/disp_cv_generate_messages_eus: /home/harsh/ros_ws/devel/share
 disp_cv/CMakeFiles/disp_cv_generate_messages_eus: /home/harsh/ros_ws/devel/share/roseus/ros/disp_cv/msg/pos3dtime.l
 disp_cv/CMakeFiles/disp_cv_generate_messages_eus: /home/harsh/ros_ws/devel/share/roseus/ros/disp_cv/msg/multibox.l
 disp_cv/CMakeFiles/disp_cv_generate_messages_eus: /home/harsh/ros_ws/devel/share/roseus/ros/disp_cv/msg/box.l
+disp_cv/CMakeFiles/disp_cv_generate_messages_eus: /home/harsh/ros_ws/devel/share/roseus/ros/disp_cv/msg/pose.l
 disp_cv/CMakeFiles/disp_cv_generate_messages_eus: /home/harsh/ros_ws/devel/share/roseus/ros/disp_cv/manifest.l
 
 
@@ -82,8 +83,13 @@ disp_cv/CMakeFiles/disp_cv_generate_messages_eus: /home/harsh/ros_ws/devel/share
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/harsh/ros_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating EusLisp code from disp_cv/box.msg"
 	cd /home/harsh/ros_ws/build/disp_cv && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/harsh/ros_ws/src/disp_cv/msg/box.msg -Idisp_cv:/home/harsh/ros_ws/src/disp_cv/msg -Isensor_msgs:/opt/ros/kinetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/kinetic/share/geometry_msgs/cmake/../msg -p disp_cv -o /home/harsh/ros_ws/devel/share/roseus/ros/disp_cv/msg
 
+/home/harsh/ros_ws/devel/share/roseus/ros/disp_cv/msg/pose.l: /opt/ros/kinetic/lib/geneus/gen_eus.py
+/home/harsh/ros_ws/devel/share/roseus/ros/disp_cv/msg/pose.l: /home/harsh/ros_ws/src/disp_cv/msg/pose.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/harsh/ros_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Generating EusLisp code from disp_cv/pose.msg"
+	cd /home/harsh/ros_ws/build/disp_cv && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/harsh/ros_ws/src/disp_cv/msg/pose.msg -Idisp_cv:/home/harsh/ros_ws/src/disp_cv/msg -Isensor_msgs:/opt/ros/kinetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/kinetic/share/geometry_msgs/cmake/../msg -p disp_cv -o /home/harsh/ros_ws/devel/share/roseus/ros/disp_cv/msg
+
 /home/harsh/ros_ws/devel/share/roseus/ros/disp_cv/manifest.l: /opt/ros/kinetic/lib/geneus/gen_eus.py
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/harsh/ros_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Generating EusLisp manifest code for disp_cv"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/harsh/ros_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Generating EusLisp manifest code for disp_cv"
 	cd /home/harsh/ros_ws/build/disp_cv && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py -m -o /home/harsh/ros_ws/devel/share/roseus/ros/disp_cv disp_cv sensor_msgs std_msgs
 
 disp_cv_generate_messages_eus: disp_cv/CMakeFiles/disp_cv_generate_messages_eus
@@ -91,6 +97,7 @@ disp_cv_generate_messages_eus: /home/harsh/ros_ws/devel/share/roseus/ros/disp_cv
 disp_cv_generate_messages_eus: /home/harsh/ros_ws/devel/share/roseus/ros/disp_cv/msg/pos3dtime.l
 disp_cv_generate_messages_eus: /home/harsh/ros_ws/devel/share/roseus/ros/disp_cv/msg/multibox.l
 disp_cv_generate_messages_eus: /home/harsh/ros_ws/devel/share/roseus/ros/disp_cv/msg/box.l
+disp_cv_generate_messages_eus: /home/harsh/ros_ws/devel/share/roseus/ros/disp_cv/msg/pose.l
 disp_cv_generate_messages_eus: /home/harsh/ros_ws/devel/share/roseus/ros/disp_cv/manifest.l
 disp_cv_generate_messages_eus: disp_cv/CMakeFiles/disp_cv_generate_messages_eus.dir/build.make
 

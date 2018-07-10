@@ -38,6 +38,7 @@ if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspeci
     "/home/harsh/ros_ws/src/disp_cv/msg/multibox.msg"
     "/home/harsh/ros_ws/src/disp_cv/msg/pos3dtime.msg"
     "/home/harsh/ros_ws/src/disp_cv/msg/reg_pos3Dtime.msg"
+    "/home/harsh/ros_ws/src/disp_cv/msg/pose.msg"
     )
 endif()
 

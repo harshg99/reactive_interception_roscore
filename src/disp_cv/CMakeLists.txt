@@ -60,6 +60,7 @@ find_package(Eigen3 REQUIRED)
    multibox.msg
    pos3dtime.msg
    reg_pos3Dtime.msg
+   pose.msg
 #   Message2.msg
  )
 
@@ -183,7 +184,11 @@ target_link_libraries( image_train
     ${catkin_LIBRARIES}
     ${OpenCV_LIBRARIES}
     )
-
+add_executable(traj_tcp_server src/traj_tcp_server.cpp)
+target_link_libraries( traj_tcp_server
+    ${catkin_LIBRARIES}
+    ${OpenCV_LIBRARIES}
+    )
 #############
 ## Install ##
 #############

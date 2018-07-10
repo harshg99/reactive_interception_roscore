@@ -14,13 +14,14 @@
 #include<iostream>
 #include<math.h>
 
-#define time_interval_reg 0.08
-#define dataSize 5
+#define time_interval_reg 0.005
+#define dataSize 7
 #define tolerance 0.01
 
 #define AXIS_X 1
 #define AXIS_Y 2
 #define AXIS_Z 3
+#define grav -9.80
 
 //Evaluates the trajectory and caluclated interception point between robot and object
 
@@ -85,7 +86,7 @@ class regression
 
       }
 
-     std::cout<<t<<"\n\n"<<posx<<"\n\n"<<posy<<"\n\n"<<posz<<"\n\n";
+     //std::cout<<t<<"\n\n"<<posx<<"\n\n"<<posy<<"\n\n"<<posz<<"\n\n";
 
      //call to isRegressed tat evaluates whether data can be regressed upon
      bool regressX=isRegressed(msg->ref-1,AXIS_X);
@@ -104,7 +105,7 @@ class regression
      {
        calc_coeffsz();
      }
-       std::cout<<coeffx<<"\n\n"<<coeffy<<"\n\n"<<coeffz<<"\n\n";
+       //std::cout<<coeffx<<"\n\n"<<coeffy<<"\n\n"<<coeffz<<"\n\n";
       predict(msg->ref-1,pointref,regressX,regressY,regressZ);
       intercept(msg->ref,pointref,regressX,regressY,regressZ);
     }
@@ -117,11 +118,18 @@ class regression
 
       //base of comparision
       float base;
-      for(int j=5;j>=1;j--)
+      int start=0;
+      if(dataSize>12){
+        start=12;
+      }
+      else{
+        start=dataSize-1;
+      }
+      for(int j=start;j>=1;j--)
       {
         int temp=ref-j;
         temp=(temp<0)?temp+dataSize:temp;
-        if(j==3){
+        if(j==start){
           switch(type){
             case AXIS_X:base=posx(temp,0);break;
             case AXIS_Y:base=posy(temp,0);break;
@@ -148,7 +156,7 @@ class regression
         }
 
       }
-      if(count>=2){
+      if(count>=3){
         return false;
       }
       else{
@@ -200,7 +208,7 @@ class regression
 
       bool flag=false;
       ROS_INFO("Reference Time: %lf",t(ref,1));
-      for(int j=1;j<=10;j++)
+      for(int j=1;j<=20;j++)
       {
         geometry_msgs::Point p;
         //ROS_INFO("Reference at: %d",ref);
@@ -214,10 +222,10 @@ class regression
         p.x=refp.x+0.005;
         }
         if(isY){
-        p.y=refp.y+coeffy(0,0)+coeffy(1,0)*pt+coeffy(2,0)*pt*pt;
+        p.y=refp.y+coeffy(0,0)+coeffy(1,0)*pt+coeffy(2,0)*pt*pt-grav*pt*pt;
         }
         else{
-           p.y=refp.y+0.005;
+           p.y=refp.y-grav*pt*pt;
         }
         if(isZ){
         p.z=refp.z+coeffz(0,0)+coeffz(1,0)*pt+coeffz(2,0)*pt*pt;
@@ -229,7 +237,7 @@ class regression
         marker.points.push_back(p);
         flag=true;
         }
-        ROS_INFO("Predict at time %lf: %lf %lf %lf",pt,p.x,p.y,p.z);
+        //ROS_INFO("Predict at time %lf: %lf %lf %lf",pt,p.x,p.y,p.z);
 
       }
       if(flag){
