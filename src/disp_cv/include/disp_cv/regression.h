@@ -73,12 +73,13 @@ class regression
       //retrieves data from the marker and initialises the matrices used for regression analysis
       for(int i=0;i<msg->points.size();i++)
       {
-         posx(i,0)=msg->points[i].x-msg->points[msg->ref].x;
-         posy(i,0)=msg->points[i].y-msg->points[msg->ref].y;
-         posz(i,0)=msg->points[i].z-msg->points[msg->ref].z;
          t(i,0)=1;
          t(i,1)=(double)(msg->points[i].timestamp-msg->points[msg->ref].timestamp).sec+(double)(msg->points[i].timestamp-msg->points[msg->ref].timestamp).nsec/1000000000.0;
          t(i,2)=t(i,1)*t(i,1);
+
+         posx(i,0)=msg->points[i].x-msg->points[msg->ref].x;
+         posy(i,0)=msg->points[i].y-msg->points[msg->ref].y-grav*t(i,1)*t(i,1);
+         posz(i,0)=msg->points[i].z-msg->points[msg->ref].z;
 
          pointref.x=msg->points[msg->ref].x;
          pointref.y=msg->points[msg->ref].y;
@@ -222,7 +223,7 @@ class regression
         p.x=refp.x+0.005;
         }
         if(isY){
-        p.y=refp.y+coeffy(0,0)+coeffy(1,0)*pt+coeffy(2,0)*pt*pt-grav*pt*pt;
+        p.y=refp.y+coeffy(0,0)+coeffy(1,0)*pt+coeffy(2,0)*pt*pt;
         }
         else{
            p.y=refp.y-grav*pt*pt;

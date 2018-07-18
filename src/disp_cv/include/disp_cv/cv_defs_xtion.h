@@ -40,8 +40,8 @@ class detect
                   };
             }
             //your haar cascade
-            detect(string casacde_name){
-                cascade_name=this->cascade_name;
+            detect(string cascade_name){
+                this->cascade_name=cascade_name;
                 if( !cascade.load( cascade_name ) )
                 { ROS_INFO("--(!)Error loading face cascade\n");
                   return ;
@@ -152,7 +152,8 @@ class ImageConverter
        publish=publishBox(nh_);
 
        cv::namedWindow(OPENCV_WINDOW);
-       object=detect();
+       object=detect("/home/harsh/dataset/cascade/cascade.xml");
+       //object=detect();
      }
 
      ~ImageConverter()

@@ -84,12 +84,15 @@ class Trainer
 
       cv::cvtColor(cv_ptr->image, frame_gray, cv::COLOR_BGR2GRAY );
       cv::imshow(OPENCV_WINDOW,frame_gray);
-      if(lat>200)
+      if(lat>200 && lat<=1200)
       {
       ss<<"/home/harsh/dataset/ball/ball"<<count<<".jpg";
       count++;
       output<<ss.str()<<" 1 0 0 192 192\n";
       cv::imwrite(ss.str(),frame_gray);
+      }
+      else{
+        ROS_INFO("TAKEN\N");
       }
       }
       else{
@@ -97,11 +100,15 @@ class Trainer
        cv::Mat frame_gray;
        cv::cvtColor(cv_ptr->image, frame_gray, cv::COLOR_BGR2GRAY );
        cv::imshow(OPENCV_WINDOW,frame_gray);
-
+       if(count<3000){
        ss<<"/home/harsh/dataset/background/back"<<count<<".jpg";
        count++;
        output<<ss.str()<<"\n";
        cv::imwrite(ss.str(),frame_gray);
+      }
+       else{
+         ROS_INFO("TAKEN\N");
+       }
       }
        lat++;
      }

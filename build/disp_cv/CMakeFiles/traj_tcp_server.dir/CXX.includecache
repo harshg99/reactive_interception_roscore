@@ -23,7 +23,27 @@ ros/message_operations.h
 -
 
 /home/harsh/ros_ws/src/disp_cv/include/disp_cv/tcpsocket.h
+ros/ros.h
+-
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+unistd.h
+-
+sys/types.h
+-
+sys/socket.h
+-
+netinet/in.h
+-
+std_msgs/String.h
+-
 disp_cv/pose.h
+-
+stdio.h
 -
 
 /home/harsh/ros_ws/src/disp_cv/src/traj_tcp_server.cpp
